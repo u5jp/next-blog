@@ -1,0 +1,78 @@
+// colors
+// blue:#739AB1
+// gray:#CECABF
+// orange:#DEA785
+// deepOrange:#9D6B7D
+// red:9D6B7D
+// purple:6A5E76
+
+html,
+body {
+  height: 100%;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #f4f7f9;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hoverable:hover {
+  opacity: 0.7;
+}
+
+.red-text {
+  color: #AD7370 !important;
+}
+
+.indexWrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+}
+
+.container_item {
+  width: calc(100%/3);
+  padding: 0 10px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
+  padding: 20px;
+  min-height: 280px;
+}
+
+.card_img {
+  width: 100%;
+}
+
+.card_title {
+  font-size: 16px;
+  margin: 10px 15px 0;
+  color: #000;
+}
+
+.card_text {
+  margin: 10px 15px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+
+//footerLayout
+.footer {
+  padding: 40px;
+  font-size: 20px;
+  text-align: center;
+
+  a {
+    color: #6A5E76;
+  }
+}
