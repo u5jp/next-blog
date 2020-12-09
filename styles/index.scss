@@ -6,23 +6,6 @@
 // red:9D6B7D
 // purple:6A5E76
 
-html,
-body {
-  height: 100%;
-  font-family: Nunito, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  background-color: #f4f7f9;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
 .u-clickable {
   cursor: pointer;
 }
@@ -36,6 +19,7 @@ a {
 }
 
 .indexWrapper {
+  padding: 30px 20px;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -57,9 +41,8 @@ a {
 }
 
 .container_item {
-  width: calc(100%/3);
-  margin-top: 20px;
-  padding: 0 10px;
+  width: calc(100% / 3 - 20px);
+  margin: 20px 10px 0;
 }
 
 
@@ -68,34 +51,102 @@ a {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
-  padding: 20px;
+  padding: 15px 20px 5px;
   min-height: 280px;
 }
 
 .card_imgWrap {
+  margin-top: 10px;
   height: 150px;
   position: relative;
+  overflow: hidden;
 
   >img {
     position: absolute;
     object-fit: cover;
     height: 100%;
-    margin: 0 auto;
-    right: 0;
-    left: 0;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
   }
 }
 
+.card_textWrap {
+  padding: 5px;
+}
+
 .card_title {
+  margin-top: 10px;
   font-size: 16px;
-  margin: 10px 15px 0;
   color: #000;
 }
 
 .card_text {
-  margin: 10px 15px 0;
+  margin-top: 10px;
   font-size: 14px;
   color: #666;
+}
+
+.card_categories {
+  margin-top: 10px;
+}
+
+.categoryWrap {
+  display: flex;
+}
+
+.categoryWrap_category {
+  padding: 5px;
+  margin-right: 5px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #607d8b;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+//blogDetailPage(ブログページ全体)
+.blogDetailPage_inner {
+  padding: 10px 25px;
+}
+
+.blogDetailPage_body{
+  p{
+    margin: 20px 0;
+  }
+}
+
+.blogDetailPage_img {
+  width: 70%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+//blogHead(ブログページの上半分)
+
+.blogHead {}
+
+.blogHeader_title {
+  margin-top: 10px;
+  font-size: 36px;
+}
+
+.blogHeader_subtitle {
+  margin-top: 20px;
+  font-size: 20px
+}
+
+.blogHeader_categories {
+  margin-top: 10px;
+}
+
+.blogHeader_imgWrap {
+  margin-top: 10px;
+  width: 100%;
+
+  >img {
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 

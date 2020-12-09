@@ -1,3 +1,4 @@
+import "styles/reset.scss";
 import "styles/index.scss";
 
 function MyApp({ Component, pageProps }) {

@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-
 import PageLayout from "components/PageLayout";
 import Intro from "components/Intro";
 import CardItem from "components/CardItem";
 
-// import { getAllBlogs } from "lib/api";
-import { getAllBlogs, getBlogBySlug } from "lib/api";
+import { getAllBlogs } from "lib/api";
 
 export default function Home({ blogs }) {
   return (
@@ -13,7 +10,7 @@ export default function Home({ blogs }) {
       <Intro />
       <hr />
       <div className="container">
-        {/* {blogs.map((blog) => (
+        {blogs.map((blog) => (
           <CardItem
             className="container_item"
             key={blog.fields.slug}
@@ -21,14 +18,14 @@ export default function Home({ blogs }) {
             subtitle={blog.fields.subtitle}
             date={blog.fields.date}
             src={blog.fields.thumbnail.fields.file.url}
-            // slug={blog.fields.slug}
+            categories={blog.fields.categories}
             link={{
               href: "/blogs/[slug]",
               as: `/blogs/${blog.fields.slug}`,
             }}
           />
-        ))} */}
-        {blogs.map((blog) => (
+        ))}
+        {/* {blogs.map((blog) => (
           <CardItem
             className="container_item"
             key={blog.slug}
@@ -42,7 +39,7 @@ export default function Home({ blogs }) {
               as: `/blogs/${blog.slug}`,
             }}
           />
-        ))}
+        ))} */}
       </div>
     </PageLayout>
   );
