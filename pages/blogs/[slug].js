@@ -3,31 +3,6 @@ import BlogHeader from "components/BlogHeader";
 import BlogContent from "components/BlogContent";
 import { getBlogBySlug, getAllBlogs } from "lib/api";
 
-import { MARKS } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-const options = {
-  renderNode: {
-    "embedded-asset-block": (node) => {
-      return (
-        <img
-          className="blogDetailPage_img"
-          src={node.data.target.fields.file.url}
-        />
-      );
-    },
-  },
-  renderMark: {
-    [MARKS.CODE]: (text) => {
-      return (
-        <pre>
-          <code>{text}</code>
-        </pre>
-      );
-    },
-  },
-};
-
 const BlogDetail = ({ blog }) => {
   console.log(blog);
   return (

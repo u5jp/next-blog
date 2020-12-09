@@ -1,5 +1,6 @@
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import HighlightCode from "components/HighlightCode";
 
 const options = {
   renderNode: {
@@ -14,11 +15,7 @@ const options = {
   },
   renderMark: {
     [MARKS.CODE]: (text) => {
-      return (
-        <pre>
-          <code>{text}</code>
-        </pre>
-      );
+      return <HighlightCode>{text}</HighlightCode>;
     },
   },
 };

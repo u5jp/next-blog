@@ -50,38 +50,11 @@ export async function getBlogBySlug(slug) {
 
 export async function getImage(id) {
   const response = await fetchContent(`
-{blogsCollection(where:{slug:"my-first-blog"}){
-  items{
-
-    body {
-      json
-      links {
-        entries {
-          block {
-            __typename
-            ... on WidgetSlider {
-              sys {
-                id
-              }
-              name
-              slidesToShow
-              itemsCollection {
-                items {
-                  image {
-                    title
-                    url
-                  }
-                  link
-                }
-              }
-            }
-          }
-        }
-      }
+  {
+    asset(id:"uqEatMMAdpTIsf3lmlWv9"){
+      url
     }
   }
-}
-}
   `);
   // console.log(id);
   // console.log(response);
