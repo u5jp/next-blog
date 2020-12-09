@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
-    <nav>
-      <a href="#">u5jp</a>
+    <nav className="nav">
+      <Link href="/">
+        <a>u5jp</a>
+      </Link>
     </nav>
   );
 };

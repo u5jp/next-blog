@@ -1,4 +1,5 @@
-// lib/index.js
+//クエリテスト用
+// lib/test.js
 
 const client = require("contentful").createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -7,7 +8,7 @@ const client = require("contentful").createClient({
 
 export async function getAllPosts() {
   const entries = await client.getEntries({
-    content_type: "blogPost",
+    content_type: "blogs",
     // postのslugの値を取得
     // select: "fields.slug",
   });
