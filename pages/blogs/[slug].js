@@ -4,7 +4,6 @@ import BlogContent from "components/BlogContent";
 import { getBlogBySlug, getAllBlogs } from "lib/api";
 
 const BlogDetail = ({ blog }) => {
-  console.log(blog);
   return (
     <PageLayout className="blogDetailPage">
       <div className="blogDetailPage_inner">

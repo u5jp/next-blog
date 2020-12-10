@@ -56,8 +56,7 @@ export async function getImage(id) {
     }
   }
   `);
-  // console.log(id);
-  // console.log(response);
+  console.log("test res", response);
 
   return response;
 }

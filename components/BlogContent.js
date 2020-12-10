@@ -4,24 +4,23 @@ import HighlightCode from "components/HighlightCode";
 
 const options = {
   renderNode: {
-    "embedded-asset-block": (node) => {
-      return (
-        <img
-          className="blogDetailPage_img"
-          src={node.data.target.fields.file.url}
-        />
-      );
-    },
+    "embedded-asset-block": ({
+      data: {
+        target: {
+          fields: {
+            title,
+            file: { url },
+          },
+        },
+      },
+    }) => <img className="blogDetailPage_img" src={url} alt={title} />,
   },
   renderMark: {
-    [MARKS.CODE]: (text) => {
-      return <HighlightCode>{text}</HighlightCode>;
-    },
+    [MARKS.CODE]: (text) => <HighlightCode>{text}</HighlightCode>,
   },
 };
 
 const BlogContent = ({ body }) => {
-  console.log("body", body);
   return (
     <div className="blogDetailPage_body">
       {documentToReactComponents(body, options)}

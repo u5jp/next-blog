@@ -6,12 +6,11 @@ const HighlightCode = ({ children }) => {
   const code = createRef();
 
   useEffect(() => {
-    debugger;
     highlight.highlightBlock(findDOMNode(code.current));
   });
 
   return (
-    <pre className="blogDetailPage_code">
+    <pre>
       <code ref={code}>{children}</code>
     </pre>
   );

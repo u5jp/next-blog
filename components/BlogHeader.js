@@ -6,7 +6,6 @@ export default function blogHeader({
   thumbnail,
   categories,
 }) {
-  console.log(categories);
   return (
     <div className={`blogHeader ${className}`}>
       <p className="blogHeader_date">{date}</p>

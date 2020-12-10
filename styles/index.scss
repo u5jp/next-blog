@@ -1,10 +1,51 @@
-// colors
-// blue:#739AB1
-// gray:#CECABF
-// orange:#DEA785
-// deepOrange:#9D6B7D
-// red:9D6B7D
-// purple:6A5E76
+/*
+配色テーマcolors
+
+blue:#739AB1
+gray:#CECABF
+orange:#DEA785
+deepOrange:#9D6B7D
+red:9D6B7D
+purple:6A5E76
+
+*/
+
+
+
+/*====================================
+
+	scssブレイクポイント設定
+
+====================================*/
+$breakpoints: ('smallMobile':'screen and (max-width: 375px)',
+  'mobile': 'screen and (max-width: 600px)',
+  'tablet': 'screen and (max-width: 959px)',
+  'desktop': 'screen and (min-width: 960px)'
+) !default;
+
+@mixin mediaQuery($breakpoint: desktop) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/*====================================
+
+	utilクラス
+
+====================================*/
+
+.u-displayNone__mobile {
+  @include mediaQuery($breakpoint: mobile) {
+    display: none !important;
+  }
+}
+
+.u-displayNone__desktop {
+  @include mediaQuery() {
+    display: none !important;
+  }
+}
 
 .u-clickable {
   cursor: pointer;
@@ -12,43 +53,114 @@
 
 .u-hoverable:hover {
   opacity: 0.7;
+  transition: 0.5s;
 }
 
 .u-red-text {
   color: #AD7370 !important;
 }
 
-.indexWrapper {
-  padding: 30px 20px;
-  max-width: 960px;
-  margin: 0 auto;
+/*====================================
+
+	ページ枠,ナビ
+
+====================================*/
+
+html,
+body {
+  height: 100%;
+  font-family: Nunito, sans-serif;
+  background-color: #f4f7f9;
 }
 
-//nav
+.indexWrapper {
+  padding: 20px 10px;
+  max-width: 960px;
+  margin: 0 auto;
+
+  @include mediaQuery {
+    padding: 30px 20px;
+  }
+}
+
 .nav {
+  padding: 10px 5px;
+
   >a {
     font-weight: 900;
     color: #000;
     font-size: 20px;
+
+    @include mediaQuery {
+      font-size: 30px;
+    }
+  }
+}
+
+/*====================================
+
+	container(トップページのリストカードの枠)
+
+====================================*/
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  /*
+  flexBoxハック
+  カードminWidth170px*3+レイアウトパディング20px=530pxよりも
+  小さい際に以下でflexBoxの位置を修正
+  */
+  @media screen and (max-width: 529px) {
+    justify-content: center;
+
+    &::after {
+      display: block;
+      content: "";
+      margin: 10px 5px 0;
+      min-width: 160px;
+    }
+  }
+}
+
+.container_item {
+  width: calc(100% / 3 - 10px);
+  margin: 20px 5px 0;
+  min-width: 160px;
+  transition: 0.5s;
+
+
+  &:hover {
+    background: #000;
+  }
+
+  @include mediaQuery {
+    width: calc(100% / 3 - 20px);
+    margin: 30px 10px 0;
+  }
+
+  @include mediaQuery(mobile) {
+    width: calc(100% / 2 - 10px);
+    margin: 20px 5px 0;
+    min-width: 160px;
+    transition: 0.5s;
+  }
+
+  @include mediaQuery(smallMobile) {
+    width: 100%;
+    margin: 20px 10px 0;
   }
 }
 
 
-//container
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
+/*====================================
 
-.container_item {
-  width: calc(100% / 3 - 20px);
-  margin: 20px 10px 0;
-}
+	card(トップページのリストカード単体)
 
-
-//card
+====================================*/
 .card {
-  background-color: #fff;
+  background: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
   padding: 15px 20px 5px;
@@ -91,31 +203,48 @@
   margin-top: 10px;
 }
 
+/*====================================
+
+  category(リストカードについてるタグ)
+
+====================================*/
+
 .categoryWrap {
   display: flex;
 }
 
 .categoryWrap_category {
-  padding: 5px;
-  margin-right: 5px;
+  font-size: 11px;
+  padding: 3px;
+  margin-right: 3px;
   color: #fff;
   border-radius: 10px;
   background-color: #607d8b;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+
+  @include mediaQuery {
+    font-size: 12px;
+    padding: 5px;
+    margin-right: 5px;
+  }
 }
 
-//blogDetailPage(ブログページ全体)
+/*====================================
+
+  blogDetailPage(ブログ詳細ページ、リッチテキスト部分)
+
+====================================*/
+
+.blogDetailPage {}
+
 .blogDetailPage_inner {
   padding: 10px 25px;
 }
 
-.blogDetailPage_body{
-  p{
+.blogDetailPage_body {
+  p {
     margin: 20px 0;
   }
-}
-.blogDetailPage_code{
-  margin: 20px 0 -20px 0;
 }
 
 .blogDetailPage_img {
@@ -124,7 +253,11 @@
   margin: 0 auto;
 }
 
-//blogHead(ブログページの上半分)
+/*====================================
+
+  blogHead(ブログページの上半分)
+
+====================================*/
 
 .blogHead {}
 
@@ -152,8 +285,12 @@
   }
 }
 
+/*====================================
 
-//footerLayout
+  footerLayout(下部3つ並びのリンク)
+
+====================================*/
+
 .footer {
   padding: 40px;
   font-size: 20px;

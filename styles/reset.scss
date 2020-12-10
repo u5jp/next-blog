@@ -1,10 +1,8 @@
-/*
-html5doctor.com Reset Stylesheet
-v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com
-Twitter: @rich_clark
-*/
+/*====================================
+
+  html5doctor.com Reset Stylesheet v1.6.1
+
+====================================*/
 
 html,
 body,
@@ -172,7 +170,11 @@ select {
   vertical-align: middle;
 }
 
-/*追加*/
+/*====================================
+
+  Original additions
+
+====================================*/
 
 *,
 *::before,
@@ -193,9 +195,6 @@ a {
 
 html,
 body {
-  height: 100%;
-  font-family: Nunito, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  background-color: #f4f7f9;
 }
