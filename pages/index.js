@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import PageLayout from "components/PageLayout";
 import Intro from "components/Intro";
 import CardItem from "components/CardItem";
@@ -7,11 +6,13 @@ import CardListItem from "components/CardListItem";
 import FilteringMenu from "components/FilteringMenu";
 
 import { getAllBlogs } from "lib/api";
+import { useGetBlogs } from "actions/index";
 
-export default function Home({ blogs }) {
+export default function Home({ blogs: initialData }) {
   const [filter, setFilter] = useState({
     view: { list: 1 },
   });
+  const { data: blogs, error } = useGetBlogs(initialData);
 
   return (
     <PageLayout>
