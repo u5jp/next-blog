@@ -47,13 +47,12 @@ $breakpoints: ('smallMobile':'screen and (max-width: 375px)',
   }
 }
 
-.u-clickable {
+.u-clickable:hover {
   cursor: pointer;
 }
 
 .u-hoverable:hover {
   opacity: 0.7;
-  transition: 0.5s;
 }
 
 .u-red-text {
@@ -128,6 +127,7 @@ body {
   width: calc(100% / 3 - 10px);
   margin: 20px 5px 0;
   min-width: 160px;
+  min-height: 280px;
   transition: 0.5s;
 
 
@@ -153,6 +153,16 @@ body {
   }
 }
 
+.container_listItem {
+  width: 100%;
+  margin: 20px 5px 0;
+  transition: 0.5s;
+
+  &:hover {
+    background: #000;
+  }
+}
+
 
 /*====================================
 
@@ -164,7 +174,6 @@ body {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
   padding: 15px 20px 5px;
-  min-height: 280px;
 }
 
 .card_imgWrap {

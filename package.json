@@ -10,6 +10,9 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
     "contentful": "^8.1.1",
     "highlight.js": "^10.4.1",
     "next": "10.0.3",
