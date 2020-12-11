@@ -1,16 +1,13 @@
 import { useGetBlogsPages } from 'actions/pagination';
+import Button from 'components/Button';
 import CardItem from 'components/CardItem';
 import PageLayout from 'components/PageLayout';
 import { getAllCate, getBlogsContainCate, getCate } from 'lib/api';
 
 const Category = ({ cate, blogs: initialData }) => {
-  // console.log("cate", cate.sys.id);
-  // console.log("blogs", blogs);
-  // const id = cate.sys.id;
   const { data, size, setSize, hitEnd } = useGetBlogsPages({
     id: cate.sys.id,
   });
-
   const blogs = data ? [].concat(...data) : initialData;
 
   return (
@@ -19,24 +16,28 @@ const Category = ({ cate, blogs: initialData }) => {
         カテゴリーページ
         {cate?.fields.category}
       </h1>
-      {blogs.map((blog) => (
-        <CardItem
-          className="container_item"
-          key={blog.fields.slug}
-          title={blog.fields.title}
-          subtitle={blog.fields.subtitle}
-          date={blog.fields.date}
-          src={blog.fields.thumbnail.fields.file.url}
-          categories={blog.fields.categories}
-          link={{
-            href: "/blogs/[slug]",
-            as: `/blogs/${blog.fields.slug}`,
-          }}
-        />
-      ))}
-      <button disabled={hitEnd} onClick={() => setSize(size + 1)}>
-        ボタン
-      </button>
+      <div className="container">
+        {blogs.map((blog) => (
+          <CardItem
+            className="container_item"
+            key={blog.fields.slug}
+            title={blog.fields.title}
+            subtitle={blog.fields.subtitle}
+            date={blog.fields.date}
+            src={blog.fields.thumbnail.fields.file.url}
+            categories={blog.fields.categories}
+            link={{
+              href: "/blogs/[slug]",
+              as: `/blogs/${blog.fields.slug}`,
+            }}
+          />
+        ))}
+      </div>
+      <Button
+        hitEnd={hitEnd}
+        setSize={setSize}
+        size={size}
+      />
     </PageLayout>
   );
 };
