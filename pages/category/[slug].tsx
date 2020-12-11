@@ -13,8 +13,7 @@ const Category = ({ cate, blogs: initialData }) => {
   return (
     <PageLayout className="blogDetailPage">
       <h1>
-        カテゴリーページ
-        {cate?.fields.category}
+        Category Page<br/>{cate?.fields.category}
       </h1>
       <div className="container">
         {blogs.map((blog) => (
@@ -34,6 +33,7 @@ const Category = ({ cate, blogs: initialData }) => {
         ))}
       </div>
       <Button
+        className={"u-mt20"}
         hitEnd={hitEnd}
         setSize={setSize}
         size={size}

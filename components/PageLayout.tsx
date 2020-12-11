@@ -11,10 +11,7 @@ const PageLayout = ({ children, className }:PropsOptional) => {
   return (
     <>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;900&display=swap" rel="stylesheet"/>
       </Head>
       <div className="indexWrapper">
         <Navbar />
