@@ -5,9 +5,6 @@ import { getAllCate } from "lib/api";
 import { getBlogsContainCate } from "lib/api";
 
 const Category = ({ cate, blogs }) => {
-  console.log(cate);
-  console.log(cate.sys.id);
-  console.log(blogs);
   return (
     <PageLayout className="blogDetailPage">
       <h1>
