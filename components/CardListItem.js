@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CategoryTag from "components/CategoryTag";
 
 const CardListItem = ({
   className,
@@ -21,9 +22,15 @@ const CardListItem = ({
               </div>
               <div className="card_categories categoryWrap">
                 {categories.map((category, index) => (
-                  <p className="categoryWrap_category" key={index}>
-                    {category.fields.category}
-                  </p>
+                  <CategoryTag
+                    key={index}
+                    className="categoryWrap_category"
+                    category={category.fields.category}
+                    link={{
+                      href: "/category/[slug]",
+                      as: `/category/${category.fields.slug}`,
+                    }}
+                  />
                 ))}
               </div>
             </div>
