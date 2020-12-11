@@ -130,16 +130,21 @@ body {
 
   >a {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 30px;
 
     @include mediaQuery {
-      font-size: 30px;
+      font-size: 40px;
     }
   }
 }
 
 .introduce {
   margin-top: 20px;
+}
+
+.categoryPageHeader {
+  margin-top: 20px;
+  font-size: 26px;
 }
 
 /*====================================
@@ -298,7 +303,7 @@ body {
   }
 
   p {
-    color: #fff;
+    color: #f4f7f9;
   }
 }
 

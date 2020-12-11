@@ -12,7 +12,7 @@ const Category = ({ cate, blogs: initialData }) => {
 
   return (
     <PageLayout className="blogDetailPage">
-      <h1>
+      <h1 className="categoryPageHeader">
         Category Page<br/>{cate?.fields.category}
       </h1>
       <div className="container">

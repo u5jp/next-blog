@@ -20,9 +20,7 @@ const PageLayout = ({ children, className }:PropsOptional) => {
           <div>
             <a href="#">wantedly</a>
             {" | "}
-            <a href="#">github</a>
-            {" | "}
-            <a href="#">else</a>
+            <a href="#">gitHub</a>
           </div>
         </footer>
       </div>
