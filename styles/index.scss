@@ -17,14 +17,15 @@ purple:6A5E76
 	scssブレイクポイント設定
 
 ====================================*/
-$breakpoints: ('smallMobile':'screen and (max-width: 375px)',
+$queries: ('smallMobile':'screen and (max-width: 375px)',
   'mobile': 'screen and (max-width: 600px)',
   'tablet': 'screen and (max-width: 959px)',
-  'desktop': 'screen and (min-width: 960px)'
+  'desktop': 'screen and (min-width: 960px)',
+  'dark':'(prefers-color-scheme: dark) ',
 ) !default;
 
-@mixin mediaQuery($breakpoint: desktop) {
-  @media #{map-get($breakpoints, $breakpoint)} {
+@mixin mediaQuery($query: desktop) {
+  @media #{map-get($queries, $query)} {
     @content;
   }
 }
@@ -35,8 +36,9 @@ $breakpoints: ('smallMobile':'screen and (max-width: 375px)',
 
 ====================================*/
 
+
 .u-displayNone__mobile {
-  @include mediaQuery($breakpoint: mobile) {
+  @include mediaQuery($query: mobile) {
     display: none !important;
   }
 }
@@ -82,15 +84,44 @@ body {
   height: 100%;
   font-family: Alegreya, sans-serif;
   background-color: #f4f7f9;
+  color: #2b2c38;
 }
+
+@include mediaQuery('dark') {
+
+  html,
+  body {
+    background: #2b2c38;
+    color: #dcdcdc
+  }
+
+  a {
+    color: #dcdcdc
+  }
+}
+
 
 .indexWrapper {
   padding: 20px 10px;
   max-width: 960px;
   margin: 0 auto;
+  position: relative;
 
   @include mediaQuery {
     padding: 30px 20px;
+  }
+
+  &:after {
+    content: "Browser：Light mode";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  @include mediaQuery('dark') {
+    &:after {
+      content: "Browser：Dark mode"
+    }
   }
 }
 
@@ -99,7 +130,6 @@ body {
 
   >a {
     font-weight: 900;
-    color: #000;
     font-size: 20px;
 
     @include mediaQuery {
@@ -108,7 +138,7 @@ body {
   }
 }
 
-.introduce{
+.introduce {
   margin-top: 20px;
 }
 
@@ -167,7 +197,14 @@ body {
     width: 100%;
     margin: 20px 10px 0;
   }
+
+  @include mediaQuery('dark') {
+    &:hover {
+      background: #111;
+    }
+  }
 }
+
 
 // .container_listItem {
 //   width: 100%;
@@ -190,6 +227,10 @@ body {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
   padding: 15px 20px 5px;
+
+  @include mediaQuery('dark') {
+    background: #333;
+  }
 }
 
 .card_imgWrap {
@@ -215,13 +256,12 @@ body {
 .card_title {
   margin-top: 10px;
   font-size: 16px;
-  color: #000;
 }
 
 .card_text {
   margin-top: 10px;
   font-size: 14px;
-  color: #666;
+  color: #888;
 }
 
 .categories {
