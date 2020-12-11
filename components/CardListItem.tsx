@@ -1,5 +1,5 @@
-import Link from "next/link";
-import CategoryTag from "components/CategoryTag";
+import CategoryTag from 'components/CategoryTag';
+import Link from 'next/link';
 
 const CardListItem = ({
   className,

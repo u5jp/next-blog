@@ -1,5 +1,5 @@
-import { useSWRInfinite } from "swr";
-import { getBlogs } from "actions";
+import { getBlogs } from 'actions';
+import { useSWRInfinite } from 'swr';
 
 export const useGetBlogsPages = ({ id = "" } = { id: "" }) => {
   const result = useSWRInfinite((index, previousPageData) => {

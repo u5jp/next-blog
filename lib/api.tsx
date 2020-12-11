@@ -1,4 +1,4 @@
-import client from "./contentful";
+import client from './contentful';
 
 //全てのブログの取得
 export async function getAllBlogs() {
@@ -10,7 +10,7 @@ export async function getAllBlogs() {
 
   if (entries) return entries;
   // if (entries.items) return entries.items;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 //ブログslug判別による個別ブログ取得
@@ -23,7 +23,7 @@ export async function getBlogBySlug(slug) {
     .then((res) => res.items[0]);
 
   if (entry) return entry;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 //全てのカテゴリーの取得
@@ -35,7 +35,7 @@ export async function getAllCate() {
     .then((res) => res.items);
 
   if (entries) return entries;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 //カテゴリslug判別による個別カテゴリの取得
@@ -48,7 +48,7 @@ export async function getCate(cate) {
     .then((res) => res.items[0]);
 
   if (entry) return entry;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 //カテゴリid判別によるブログエントリの取得
@@ -61,7 +61,7 @@ export async function getBlogsContainCate(id) {
     .then((res) => res.items);
 
   if (entries) return entries;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 //ブログ分割ページごとの取得
@@ -76,7 +76,7 @@ export async function getPaginatedBlogs({ offset = 0 } = { offset: 0 }) {
     .then((res) => res.items);
 
   if (entries) return entries;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }
 
 // カテゴリid判別によるブログエントリの取得;
@@ -94,5 +94,5 @@ export async function getPaginatedBlogsContainCate(
     .then((res) => res.items);
 
   if (entries) return entries;
-  console.log(`Error getting Entries for ${contentType.name}.`);
+  console.log(`Error getting Entries.`);
 }

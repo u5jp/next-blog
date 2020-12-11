@@ -20,5 +20,10 @@
     "react-dom": "17.0.1",
     "sass": "^1.30.0",
     "swr": "^0.3.9"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.12",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.2"
   }
 }

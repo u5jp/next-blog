@@ -1,7 +1,13 @@
-import Head from "next/head";
-import Navbar from "./Navbar";
+import Head from 'next/head';
 
-const PageLayout = ({ children, className }) => {
+import Navbar from './Navbar';
+
+type PropsOptional = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+const PageLayout = ({ children, className }:PropsOptional) => {
   return (
     <>
       <Head>

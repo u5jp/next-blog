@@ -1,7 +1,7 @@
-import PageLayout from "components/PageLayout";
-import BlogHeader from "components/BlogHeader";
-import BlogContent from "components/BlogContent";
-import { getBlogBySlug, getAllBlogs } from "lib/api";
+import BlogContent from 'components/BlogContent';
+import BlogHeader from 'components/BlogHeader';
+import PageLayout from 'components/PageLayout';
+import { getAllBlogs, getBlogBySlug } from 'lib/api';
 
 const BlogDetail = ({ blog }) => {
   return (
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   const blogs = await getAllBlogs();
 
   return {
-    paths: blogs?.map((b) => ({ params: { slug: b.fields.slug } })),
+    paths: blogs?.map((b:any) => ({ params: { slug: b.fields.slug } })),
     fallback: false,
   };
 }

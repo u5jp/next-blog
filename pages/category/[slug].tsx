@@ -1,10 +1,7 @@
-import PageLayout from "components/PageLayout";
-import CardItem from "components/CardItem";
-import { getCate } from "lib/api";
-import { getAllCate } from "lib/api";
-import { getBlogsContainCate } from "lib/api";
-
-import { useGetBlogsPages } from "actions/pagination";
+import { useGetBlogsPages } from 'actions/pagination';
+import CardItem from 'components/CardItem';
+import PageLayout from 'components/PageLayout';
+import { getAllCate, getBlogsContainCate, getCate } from 'lib/api';
 
 const Category = ({ cate, blogs: initialData }) => {
   // console.log("cate", cate.sys.id);
@@ -59,7 +56,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const cates = await getAllCate();
   return {
-    paths: cates?.map((b) => ({ params: { slug: b.fields.slug } })),
+    paths: cates?.map((b:any) => ({ params: { slug: b.fields.slug } })),
     fallback: false,
   };
 }

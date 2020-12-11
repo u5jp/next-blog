@@ -1,15 +1,13 @@
-import PageLayout from "components/PageLayout";
-import Intro from "components/Intro";
-import CardItem from "components/CardItem";
-import CategoryTag from "components/CategoryTag";
-
-import { getAllCate } from "lib/api";
 // import { getAllBlogs } from "lib/api";
 // import { useGetBlogs } from "actions";
-import { useGetBlogsPages } from "actions/pagination";
-import { useSWRInfinite } from "swr";
+import { useGetBlogsPages } from 'actions/pagination';
+import CardItem from 'components/CardItem';
+import CategoryTag from 'components/CategoryTag';
+import Intro from 'components/Intro';
+import PageLayout from 'components/PageLayout';
+import { getAllCate, getPaginatedBlogs } from 'lib/api';
 
-import { getPaginatedBlogs } from "lib/api";
+// import { useSWRInfinite } from 'swr';
 
 export default function Home({ blogs: initialData, categories }) {
   // const { data: blogs, error } = useGetBlogs(offset,initialData);
