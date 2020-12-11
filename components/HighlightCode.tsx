@@ -1,9 +1,9 @@
-import { createRef, useEffect } from "react";
-import { findDOMNode } from "react-dom";
-import highlight from "highlight.js";
+import highlight from 'highlight.js';
+import { createRef, useEffect } from 'react';
+import { findDOMNode } from 'react-dom';
 
 const HighlightCode = ({ children }) => {
-  const code = createRef();
+  const code = createRef<HTMLDivElement>();
 
   useEffect(() => {
     highlight.highlightBlock(findDOMNode(code.current));
