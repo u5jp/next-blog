@@ -2,7 +2,7 @@ import { useGetBlogsPages } from 'actions/pagination';
 import Button from 'components/Button';
 import CardItem from 'components/CardItem';
 import CategoryTag from 'components/CategoryTag';
-import Intro from 'components/Intro';
+import Introduce from 'components/Introduce';
 import PageLayout from 'components/PageLayout';
 import { getAllCate, getPaginatedBlogs } from 'lib/api';
 
@@ -13,7 +13,7 @@ export default function Home({ blogs: initialData, categories }) {
 
   return (
     <PageLayout>
-      <Intro />
+      <Introduce />
       <div className="categories categoryWrap">
         {categories.map((category, index) => (
           <CategoryTag
