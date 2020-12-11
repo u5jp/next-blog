@@ -5,6 +5,7 @@ export async function getAllBlogs() {
   const entries = await client
     .getEntries({
       content_type: "blogs",
+      order: "-fields.date",
     })
     .then((res) => res.items);
 
@@ -57,6 +58,7 @@ export async function getBlogsContainCate(id) {
     .getEntries({
       content_type: "blogs",
       links_to_entry: `${id}`,
+      order: "-fields.date",
     })
     .then((res) => res.items);
 
@@ -72,6 +74,7 @@ export async function getPaginatedBlogs({ offset = 0 } = { offset: 0 }) {
       content_type: "blogs",
       skip: `${offset}`,
       limit: 3,
+      order: "-fields.date",
     })
     .then((res) => res.items);
 
@@ -90,6 +93,7 @@ export async function getPaginatedBlogsContainCate(
       links_to_entry: `${id}`,
       skip: `${offset}`,
       limit: 3,
+      order: "-fields.date",
     })
     .then((res) => res.items);
 
