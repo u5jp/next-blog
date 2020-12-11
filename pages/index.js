@@ -17,6 +17,10 @@ export default function Home({ blogs: initialData, categories }) {
   const { data, size, setSize, hitEnd } = useGetBlogsPages();
 
   const blogs = data ? [].concat(...data) : initialData;
+  const test = "";
+  if (test) {
+    console.log("ok");
+  }
 
   return (
     <PageLayout>

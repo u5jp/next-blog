@@ -4,7 +4,18 @@ import { getCate } from "lib/api";
 import { getAllCate } from "lib/api";
 import { getBlogsContainCate } from "lib/api";
 
-const Category = ({ cate, blogs }) => {
+import { useGetBlogsPages } from "actions/pagination";
+
+const Category = ({ cate, blogs: initialData }) => {
+  // console.log("cate", cate.sys.id);
+  // console.log("blogs", blogs);
+  // const id = cate.sys.id;
+  const { data, size, setSize, hitEnd } = useGetBlogsPages({
+    id: cate.sys.id,
+  });
+
+  const blogs = data ? [].concat(...data) : initialData;
+
   return (
     <PageLayout className="blogDetailPage">
       <h1>
@@ -26,6 +37,9 @@ const Category = ({ cate, blogs }) => {
           }}
         />
       ))}
+      <button disabled={hitEnd} onClick={() => setSize(size + 1)}>
+        ボタン
+      </button>
     </PageLayout>
   );
 };
