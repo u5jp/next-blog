@@ -2,7 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+1. create `.env.local` file in root folder with values of:
+
+```javascript
+CONTENTFUL_SPACE_ID = YOUR_CONTENTFUL_SPACE_ID;
+CONTENTFUL_API_KEY = YOUR_CONTENTFUL_API_KEY;
+CONTENTFUL_PREVIEW_API_KEY = YOUR_CONTENTFUL_PREVIEW_API_KEY;
+//from contentful dashboard
+```
+
+2. run the development server:
 
 ```bash
 npm run dev
