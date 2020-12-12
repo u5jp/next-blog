@@ -1,11 +1,13 @@
 import BlogContent from 'components/BlogContent';
 import BlogHeader from 'components/BlogHeader';
 import PageLayout from 'components/PageLayout';
+import PreviewAlert from 'components/PreviewAlert';
 import { getAllBlogs, getBlogBySlug } from 'lib/api';
 
-const BlogDetail = ({ blog }) => {
+const BlogDetail = ({ blog,preview }) => {
   return (
     <PageLayout className="blogDetailPage">
+      {preview && <PreviewAlert/>}
       <div className="blogDetailPage_inner">
         <BlogHeader
           className="blogDetailPage_header"
@@ -22,10 +24,10 @@ const BlogDetail = ({ blog }) => {
   );
 };
 
-export async function getStaticProps({ params }) {
-  const blog = await getBlogBySlug(params.slug);
+export async function getStaticProps({ params, preview = false, previewData }) {
+  const blog = await getBlogBySlug(params.slug ,preview);
   return {
-    props: { blog },
+    props: { blog,preview },
   };
 }
 

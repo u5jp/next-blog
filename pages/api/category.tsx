@@ -1,4 +1,10 @@
-import { getPaginatedBlogsContainCate } from "lib/api";
+/*====================================
+
+  カテゴリに含まれているブログjson全取得API
+
+====================================*/
+
+import { getPaginatedBlogsContainCate } from 'lib/api';
 
 export default async function getBlogs(req, res) {
   const offset = parseInt(req.query.offset || 0, 10);

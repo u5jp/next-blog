@@ -1,4 +1,6 @@
-import client from './contentful';
+import client, { previewClient } from './contentful';
+
+const getClient = preview => preview ? previewClient : client
 
 //全てのブログの取得
 export async function getAllBlogs() {
@@ -15,13 +17,16 @@ export async function getAllBlogs() {
 }
 
 //ブログslug判別による個別ブログ取得
-export async function getBlogBySlug(slug) {
-  const entry = await client
+export async function getBlogBySlug(slug, preview) {
+  const currentClient = getClient(preview)
+  const entry = await currentClient
     .getEntries({
       content_type: "blogs",
       "fields.slug[all]": slug,
     })
-    .then((res) => res.items[0]);
+    .then((res) => {
+      return res.items[0]
+    });
 
   if (entry) return entry;
   console.log(`Error getting Entries.`);

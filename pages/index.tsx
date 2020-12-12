@@ -4,15 +4,17 @@ import CardItem from 'components/CardItem';
 import CategoryTag from 'components/CategoryTag';
 import Introduce from 'components/Introduce';
 import PageLayout from 'components/PageLayout';
+import PreviewAlert from 'components/PreviewAlert';
 import { getAllCate, getPaginatedBlogs } from 'lib/api';
 
-export default function Home({ blogs: initialData, categories }) {
+export default function Home({ blogs: initialData, categories,preview }) {
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages();
   const blogs = data ? [].concat(...data) : initialData;
 
   return (
     <PageLayout>
+      {preview && <PreviewAlert/>}
       <Introduce />
       <div className="categories categoryWrap">
         {categories.map((category, index) => (
@@ -55,13 +57,14 @@ export default function Home({ blogs: initialData, categories }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({preview=false}) {
   const blogs = await getPaginatedBlogs();
   const categories = await getAllCate();
   return {
     props: {
       blogs,
       categories,
+      preview
     },
   };
 }
