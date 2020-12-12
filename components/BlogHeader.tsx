@@ -1,3 +1,5 @@
+import CategoryTag from 'components/CategoryTag';
+
 export default function blogHeader({
   className,
   date,
@@ -12,9 +14,15 @@ export default function blogHeader({
       <h1 className="blogHeader_title">{title}</h1>
       <div className="blogHeader_categories categoryWrap">
         {categories.map((category, index) => (
-          <p className="categoryWrap_category" key={index}>
-            {category.fields.category}
-          </p>
+          <CategoryTag
+            key={index}
+            className="categoryWrap_category"
+            category={category.fields.category}
+            link={{
+              href: "/category/[slug]",
+              as: `/category/${category.fields.slug}`,
+            }}
+          />
         ))}
       </div>
       <h2 className="blogHeader_subtitle">{subtitle}</h2>

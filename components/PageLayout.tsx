@@ -18,7 +18,7 @@ const PageLayout = ({ children, className }:PropsOptional) => {
         <div className={`pageWrapper ${className}`}>{children}</div>
         <footer className="footer">
           <div>
-            <a href="#">wantedly</a>
+            <a href="https://www.wantedly.com/id/yuu_ichihashi_d">wantedly</a>
             {" | "}
             <a href="#">gitHub</a>
           </div>
