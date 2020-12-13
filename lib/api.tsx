@@ -9,11 +9,10 @@ export async function getAllBlogs() {
       content_type: "blogs",
       order: "-fields.date",
     })
-    .then((res) => res.items);
+    .then((res) => res.items)
+    .catch(console.error);
 
   if (entries) return entries;
-  // if (entries.items) return entries.items;
-  console.log(`Error getting Entries.`);
 }
 
 //ブログslug判別による個別ブログ取得
@@ -26,10 +25,10 @@ export async function getBlogBySlug(slug, preview) {
     })
     .then((res) => {
       return res.items[0]
-    });
+    })
+    .catch(console.error);
 
   if (entry) return entry;
-  console.log(`Error getting Entries.`);
 }
 
 //全てのカテゴリーの取得
@@ -38,10 +37,10 @@ export async function getAllCate() {
     .getEntries({
       content_type: "categories",
     })
-    .then((res) => res.items);
+    .then((res) => res.items)
+    .catch(console.error)
 
   if (entries) return entries;
-  console.log(`Error getting Entries.`);
 }
 
 //カテゴリslug判別による個別カテゴリの取得
@@ -51,10 +50,10 @@ export async function getCate(cate) {
       content_type: "categories",
       "fields.slug[all]": cate,
     })
-    .then((res) => res.items[0]);
+    .then((res) => res.items[0])
+    .catch(console.error)
 
   if (entry) return entry;
-  console.log(`Error getting Entries.`);
 }
 
 //カテゴリid判別によるブログエントリの取得
@@ -65,10 +64,10 @@ export async function getBlogsContainCate(id) {
       links_to_entry: `${id}`,
       order: "-fields.date",
     })
-    .then((res) => res.items);
+    .then((res) => res.items)
+    .catch(console.error);
 
   if (entries) return entries;
-  console.log(`Error getting Entries.`);
 }
 
 //ブログ分割ページごとの取得
@@ -84,10 +83,10 @@ export async function getPaginatedBlogs(
       order: "-fields.date",
       query:`${search}`
     })
-    .then((res) => res.items);
+    .then((res) => res.items)
+    .catch(console.error)
 
   if (entries) return entries;
-  console.log(`Error getting Entries.`);
 }
 
 // カテゴリid判別によるブログエントリの取得;
@@ -103,8 +102,8 @@ export async function getPaginatedBlogsContainCate(
       limit: 3,
       order: "-fields.date",
     })
-    .then((res) => res.items);
+    .then((res) => res.items)
+    .catch(console.error)
 
   if (entries) return entries;
-  console.log(`Error getting Entries.`);
 }
