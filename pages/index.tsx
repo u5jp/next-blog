@@ -69,7 +69,7 @@ export default function Home({ blogs: initialData, categories,preview }) {
         ))}
       </div>
       <Button
-        className="u-mt20"
+        className="hp-mt20"
         hitEnd={hitEnd}
         setSize={setSize}
         size={size}

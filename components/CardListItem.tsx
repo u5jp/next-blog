@@ -10,7 +10,7 @@ const CardListItem = ({
   link,
 }) => {
   return (
-    <div className={`${className} u-clickable u-hoverable`}>
+    <div className={`${className} hp-clickable hp-hoverable`}>
       {Link && (
         <Link {...link}>
           <a>

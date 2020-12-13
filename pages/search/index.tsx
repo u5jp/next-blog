@@ -54,7 +54,7 @@ export default function Home({ query, preview }) {
         ))}
       </div>
       <Button
-        className="u-mt20"
+        className="hp-mt20"
         hitEnd={hitEnd}
         setSize={setSize}
         size={size}

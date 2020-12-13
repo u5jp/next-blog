@@ -37,39 +37,39 @@ $queries: ('smallMobile':'screen and (max-width: 375px)',
 ====================================*/
 
 
-.u-displayNone__mobile {
+.hp-displayNone__mobile {
   @include mediaQuery($query: mobile) {
     display: none !important;
   }
 }
 
-.u-displayNone__desktop {
+.hp-displayNone__desktop {
   @include mediaQuery() {
     display: none !important;
   }
 }
 
-.u-clickable:hover {
+.hp-clickable:hover {
   cursor: pointer;
 }
 
-.u-hoverable:hover {
+.hp-hoverable:hover {
   opacity: 0.7;
 }
 
-.u-red-text {
+.hp-red-text {
   color: #AD7370 !important;
 }
 
-.u-mt10 {
+.hp-mt10 {
   margin-top: 10px;
 }
 
-.u-mt20 {
+.hp-mt20 {
   margin-top: 20px;
 }
 
-.u-mt30 {
+.hp-mt30 {
   margin-top: 30px;
 }
 

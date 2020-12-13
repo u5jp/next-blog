@@ -1,5 +1,5 @@
-import Link from "next/link";
-import CategoryTag from "components/CategoryTag";
+import CategoryTag from 'components/CategoryTag';
+import Link from 'next/link';
 
 const CardItem = ({
   className,
@@ -11,7 +11,7 @@ const CardItem = ({
   link,
 }) => {
   return (
-    <div className={`${className} u-clickable u-hoverable`}>
+    <div className={`${className} hp-clickable hp-hoverable`}>
       {Link && (
         <Link {...link}>
           <a>

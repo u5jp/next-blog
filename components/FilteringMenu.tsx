@@ -6,7 +6,7 @@ const FilteringMenu = ({ onChange, filter }) => {
   return (
     <div>
       <FontAwesomeIcon
-        className="u-clickable u-hoverable"
+        className="hp-clickable hp-hoverable"
         size="2x"
         //TODO:typescriptERROR
         // icon={LIST_VIEW_ICONS[filter.view.list]}

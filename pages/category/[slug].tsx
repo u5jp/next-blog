@@ -33,7 +33,7 @@ const Category = ({ cate, blogs: initialData }) => {
         ))}
       </div>
       <Button
-        className={"u-mt20"}
+        className={"hp-mt20"}
         hitEnd={hitEnd}
         setSize={setSize}
         size={size}

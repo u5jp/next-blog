@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const CategoryTags = ({ className, link, category }) => {
   return (
-    <div className={`${className} u-clickable u-hoverable`}>
+    <div className={`${className} hp-clickable hp-hoverable`}>
       {Link && (
         <Link {...link}>
           <a>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Navbar from './Navbar';
 
@@ -18,9 +19,25 @@ const PageLayout = ({ children, className }:PropsOptional) => {
         <div className={`pageWrapper ${className}`}>{children}</div>
         <footer className="footer">
           <div>
-            <a href="https://www.wantedly.com/id/yuu_ichihashi_d">wantedly</a>
+            <Link href="/"><a
+              className="hp-clickable hp-hoverable"
+            >
+              TOP
+            </a></Link>
             {" | "}
-            <a href="#">gitHub</a>
+            <a
+              href="https://github.com/u5jp/"
+              className="hp-clickable hp-hoverable"
+            >
+              GitHub
+            </a>
+            {" | "}
+            <a
+              href="https://www.wantedly.com/id/yuu_ichihashi_d"
+              className="hp-clickable hp-hoverable"
+            >
+              Wantedly
+            </a>
           </div>
         </footer>
       </div>
