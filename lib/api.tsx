@@ -73,13 +73,16 @@ export async function getBlogsContainCate(id) {
 
 //ブログ分割ページごとの取得
 //limitはactions/pagination.jsと連動しているので要注意
-export async function getPaginatedBlogs({ offset = 0 } = { offset: 0 }) {
+export async function getPaginatedBlogs(
+  { offset = 0,search="" } = { offset: 0,search:"" }
+) {
   const entries = await client
     .getEntries({
       content_type: "blogs",
       skip: `${offset}`,
       limit: 3,
       order: "-fields.date",
+      query:`${search}`
     })
     .then((res) => res.items);
 

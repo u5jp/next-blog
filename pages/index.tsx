@@ -5,17 +5,38 @@ import CategoryTag from 'components/CategoryTag';
 import Introduce from 'components/Introduce';
 import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
+import SearchBox from 'components/SearchBox';
 import { getAllCate, getPaginatedBlogs } from 'lib/api';
+import Router from 'next/router';
+import { useState } from 'react';
 
 export default function Home({ blogs: initialData, categories,preview }) {
+
+  const [text, setText] = useState("")
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages();
   const blogs = data ? [].concat(...data) : initialData;
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    Router.push({
+      pathname: '/search',
+      query: { search:`${text}` }
+    })
+  }
+
   return (
     <PageLayout>
-      {preview && <PreviewAlert/>}
-      <Introduce />
+      {preview && <PreviewAlert />}
+      <div className="ly-headWrap">
+        <Introduce />
+        <SearchBox
+          handleSubmit={handleSubmit}
+          text={text}
+          setText={setText}
+        />
+      </div>
+
       <div className="categories categoryWrap">
         {categories.map((category, index) => (
           <CategoryTag

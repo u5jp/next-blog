@@ -193,8 +193,12 @@ a {
   color: #000;
 }
 
-button{
+button {
   font-family: inherit;
+}
+
+p {
+  word-wrap:break-word;
 }
 
 html,

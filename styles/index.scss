@@ -125,6 +125,10 @@ body {
   }
 }
 
+.pageWrapper {
+  position: relative;
+}
+
 .nav {
   padding: 10px 5px;
 
@@ -140,6 +144,7 @@ body {
 
 .introduce {
   margin-top: 20px;
+  max-width: 600px;
 }
 
 .categoryPageHeader {
@@ -147,8 +152,14 @@ body {
   font-size: 26px;
 }
 
-.previewAlert{
-  padding:20px 30px;
+.previewAlert {
+  padding: 20px 30px;
+}
+
+.ly-headWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /*====================================
@@ -160,22 +171,6 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-
-  /*
-  flexBoxハック
-  カードminWidth170px*3+レイアウトパディング20px=530pxよりも
-  小さい際に以下でflexBoxの位置を修正
-  */
-  @media screen and (max-width: 529px) {
-    justify-content: center;
-
-    &::after {
-      display: block;
-      content: "";
-      margin: 10px 5px 0;
-      min-width: 160px;
-    }
-  }
 }
 
 .container_item {
@@ -369,11 +364,11 @@ body {
 
 /*buttonコンポーネント*/
 
-.c-button {
+.bl-button {
   text-align: center;
 }
 
-.c-button_inner {
+.bl-button_inner {
   cursor: pointer;
   display: inline-block;
   max-width: 100%;
@@ -391,16 +386,91 @@ body {
   transition: 0.2s;
 }
 
-.c-button_inner:hover:not(:disabled) {
+.bl-button_inner:hover:not(:disabled) {
   background: #fff;
   border-color: currentColor;
   color: #6A5E76;
 }
 
-.c-button_inner:disabled {
+.bl-button_inner:disabled {
   background: #ccc;
   cursor: auto;
 }
+
+.bl-searchBox {
+  padding: 10px;
+  text-align: right;
+  margin: 0 0 0 auto
+}
+
+.bl-searchBox_header {
+  margin-top: 10px;
+}
+
+.bl-searchBox_textArea {
+  margin-top: 10px;
+  position: relative;
+
+}
+
+.bl-searchBox_icon {
+  position: absolute;
+  left: 5px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.bl-searchBox_input {
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: #fff;
+  padding: 5px;
+  width: 130px;
+}
+
+//
+.bl-button2 {
+  margin-top: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.bl-button2_inner {
+  padding: 5px 25px 5px 10px;
+  border: 1px solid currentColor;
+  color: #2b2c38;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: .5s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.bl-button2_icon {
+  position: absolute;
+  right: 5px;
+  bottom: 50%;
+  transform: translateY(50%);
+  color: #777;
+  pointer-events: none;
+  transition: .25s;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.bl-button2:focus,
+.bl-button2:hover {
+
+  .bl-button2_inner,
+  .bl-button2_inner {
+    background-color: #2b2c38;
+    color: #CECABF;
+  }
+
+  .bl-button2_icon {
+    color: #CECABF;
+  }
+}
+
 
 /*====================================
 
