@@ -7,6 +7,7 @@ import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import SearchBox from 'components/SearchBox';
 import { getAllCate, getPaginatedBlogs } from 'lib/api';
+import Head from 'next/head';
 import Router from 'next/router';
 import { useState } from 'react';
 
@@ -26,9 +27,13 @@ export default function Home({ blogs: initialData, categories,preview }) {
   }
 
   return (
+    <>
+    <Head>
+      <title>u5jpブログ|トップページ</title>
+    </Head>
     <PageLayout>
       {preview && <PreviewAlert />}
-      <div className="ly-headWrap">
+      <div className="ly_pageHeader_wrapper">
         <Introduce />
         <SearchBox
           handleSubmit={handleSubmit}
@@ -37,11 +42,12 @@ export default function Home({ blogs: initialData, categories,preview }) {
         />
       </div>
 
-      <div className="categories categoryWrap">
+      <div className="bl_category_wrapper bl_category_wrapper__right">
         {categories.map((category, index) => (
           <CategoryTag
             key={index}
-            className="categoryWrap_category"
+            index={index}
+            className="bl_category"
             category={category.fields.category}
             link={{
               href: "/category/[slug]",
@@ -51,10 +57,10 @@ export default function Home({ blogs: initialData, categories,preview }) {
         ))}
       </div>
       <hr />
-      <div className="container">
+      <div className="ly_container">
         {blogs.map((blog) => (
           <CardItem
-            className="container_item"
+            className="ly_container_item"
             key={blog.fields.slug}
             title={blog.fields.title}
             subtitle={blog.fields.subtitle}
@@ -74,7 +80,8 @@ export default function Home({ blogs: initialData, categories,preview }) {
         setSize={setSize}
         size={size}
       />
-    </PageLayout>
+      </PageLayout>
+      </>
   );
 }
 

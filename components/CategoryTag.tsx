@@ -1,16 +1,26 @@
 import Link from 'next/link';
 
-const CategoryTags = ({ className, link, category }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const CategoryTags = ({ index, className, link, category }) => {
   return (
-    <div className={`${className} hp-clickable hp-hoverable`}>
-      {Link && (
-        <Link {...link}>
-          <a>
-            <p>{category}</p>
-          </a>
-        </Link>
-      )}
-    </div>
+    <>
+      {index === 0 ?
+        <FontAwesomeIcon
+          size="1x"
+          icon="tags"
+          className={`${className}_tag`}
+        />:""}
+      <div className={`${className} hp-clickable hp-hoverable`}>
+        {Link && (
+          <Link {...link}>
+            <a>
+              <p>{category}</p>
+            </a>
+          </Link>
+        )}
+        </div>
+    </>
   );
 };
 

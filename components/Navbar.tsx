@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="nav">
+    <nav className="ly_nav">
       <Link href="/">
-        <a>u5jp</a>
+        <a className="bl_navTitle hp-clickable hp-hoverable">u5jp</a>
       </Link>
     </nav>
   );

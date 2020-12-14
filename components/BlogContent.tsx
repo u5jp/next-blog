@@ -18,7 +18,7 @@ const options = {
 
 const BlogContent = ({ className,body }) => {
   return (
-    <div className="blogDetailPage_body">
+    <div className="ly_blogDetail_body bl_blogBody">
       {documentToReactComponents(body, options)}
     </div>
   );

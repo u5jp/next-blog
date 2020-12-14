@@ -2,23 +2,47 @@ import { useGetBlogsPages } from 'actions/pagination';
 import Button from 'components/Button';
 import CardItem from 'components/CardItem';
 import PageLayout from 'components/PageLayout';
+import PreviewAlert from 'components/PreviewAlert';
 import { getAllCate, getBlogsContainCate, getCate } from 'lib/api';
+import ErrorPage from 'next/error';
+import { useRouter } from 'next/router';
 
-const Category = ({ cate, blogs: initialData }) => {
+const Category = ({ cate, blogs: initialData,preview }) => {
+  const router = useRouter();
+
+  if (!router.isFallback && !cate?.fields.slug) {
+    return <ErrorPage statusCode={404}/>
+  }
+
+  if (router.isFallback) {
+    return (
+      <PageLayout>
+          Loading...
+      </PageLayout>
+    )
+  }
+
   const { data, size, setSize, hitEnd } = useGetBlogsPages({
     id: cate.sys.id,
   });
   const blogs = data ? [].concat(...data) : initialData;
 
   return (
-    <PageLayout className="blogDetailPage">
-      <h1 className="categoryPageHeader">
-        Category Page<br/>{cate?.fields.category}
-      </h1>
-      <div className="container">
+    <PageLayout>
+      {preview && <PreviewAlert/>}
+      <div className="ly_pageHeader">
+        <h1>
+          Category Page
+        </h1>
+        <h2>
+          Tag : {cate?.fields.category}<br />
+          Items : {blogs.length}
+        </h2>
+      </div>
+      <div className="ly_container">
         {blogs.map((blog) => (
           <CardItem
-            className="container_item"
+            className="ly_container_item"
             key={blog.fields.slug}
             title={blog.fields.title}
             subtitle={blog.fields.subtitle}
@@ -42,7 +66,7 @@ const Category = ({ cate, blogs: initialData }) => {
   );
 };
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params,preview=false }) {
   const cate = await getCate(params.slug);
   const blogs = await getBlogsContainCate(cate.sys.id);
 
@@ -50,6 +74,7 @@ export async function getStaticProps({ params }) {
     props: {
       cate,
       blogs,
+      preview
     },
   };
 }
@@ -58,7 +83,7 @@ export async function getStaticPaths() {
   const cates = await getAllCate();
   return {
     paths: cates?.map((b:any) => ({ params: { slug: b.fields.slug } })),
-    fallback: false,
+    fallback: true,
   };
 }
 

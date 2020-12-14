@@ -9,11 +9,11 @@ type PropsOptional<T> = {
 
 function Button({className,hitEnd,setSize,size}:PropsOptional<number>) {
   return (
-    <div className={`bl-button ${className}`}>
+    <div className={`el_button ${className}`}>
       <button
         disabled={hitEnd}
         onClick={() => { setSize(size + 1)}}
-        className="bl-button_inner">
+        className="el_button_inner">
         Read More
       </button>
     </div>

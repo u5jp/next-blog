@@ -3,36 +3,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 type PropsOptional<T> = {
   handleSubmit: (e: any) => void;
   setText: (param:T)=>void;
-  text?:T
+  text?: T;
 };
 
 function SearchBox({
   handleSubmit,
   setText,
-  text }: PropsOptional<string>) {
+  text}: PropsOptional<string>) {
 
   return (
-    <div className="bl-searchBox">
+    <div className="bl_searchBox">
       <form onSubmit={handleSubmit}>
-        <p className="bl-searchBox_header">Search Box</p>
-        <div className="bl-searchBox_textArea">
+        <p className="bl_searchBox_header">Search Box</p>
+        <div className="bl_searchBox_textArea">
           <input
-            className="bl-searchBox_input"
+            className="bl_searchBox_input"
             type="search"
             placeholder="Enter a keyword"
             value={text}
             onChange={e => setText(e.target.value)}
           />
         </div>
-        <div className="bl-button2">
+        <div className="bl_button2">
+          <input
+            className="bl_button2_inner"
+            type="submit"
+            value="search"
+            disabled={text?false:true}
+          />
           <FontAwesomeIcon
-            className="bl-button2_icon"
+            className="bl_button2_icon"
             size="1x"
             icon="search"/>
-          <input
-            className="bl-button2_inner"
-            type="submit"
-            value="search"/>
         </div>
       </form>
     </div>

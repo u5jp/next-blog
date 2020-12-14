@@ -1,22 +1,29 @@
-/*
-配色テーマcolors
+/*====================================
 
-blue:#739AB1
-gray:#CECABF
-orange:#DEA785
-deepOrange:#9D6B7D
-red:9D6B7D
-purple:6A5E76
+  配色テーマカラー
+  基本的にこの中の色を使う
+  #fffと#000は例外的に使用可能
 
-*/
-
-
+====================================*/
+$darkBackground:#2b2c38;
+$lightBackground:#f4f7f9;
+$disabled:#ccc;
+$black:#2b2c38;
+$middle:#888;
+$white:#dcdcdc;
+$blue:#739AB1;
+$gray:#CECABF;
+$orange:#DEA785;
+$deepOrange:#9D6B7D;
+$red:#9D6B7D;
+$purple:#6A5E76;
 
 /*====================================
 
 	scssブレイクポイント設定
 
 ====================================*/
+
 $queries: ('smallMobile':'screen and (max-width: 375px)',
   'mobile': 'screen and (max-width: 600px)',
   'tablet': 'screen and (max-width: 959px)',
@@ -32,7 +39,35 @@ $queries: ('smallMobile':'screen and (max-width: 375px)',
 
 /*====================================
 
-	utilクラス
+	Baseクラス
+
+====================================*/
+
+html,
+body {
+  height: 100%;
+  font-family: Alegreya, sans-serif;
+  background-color: $lightBackground;
+  color: $black;
+}
+
+@include mediaQuery('dark') {
+
+  html,
+  body {
+    background: $darkBackground;
+    color: $white
+  }
+
+  a {
+    color: $white
+  }
+}
+
+
+/*====================================
+
+	helperクラス
 
 ====================================*/
 
@@ -58,7 +93,7 @@ $queries: ('smallMobile':'screen and (max-width: 375px)',
 }
 
 .hp-red-text {
-  color: #AD7370 !important;
+  color: $red !important;
 }
 
 .hp-mt10 {
@@ -75,33 +110,50 @@ $queries: ('smallMobile':'screen and (max-width: 375px)',
 
 /*====================================
 
-	ページ枠,ナビ
+	elementクラス
 
 ====================================*/
 
-html,
-body {
-  height: 100%;
-  font-family: Alegreya, sans-serif;
-  background-color: #f4f7f9;
-  color: #2b2c38;
+.el_button {
+  text-align: center;
 }
 
-@include mediaQuery('dark') {
-
-  html,
-  body {
-    background: #2b2c38;
-    color: #dcdcdc
-  }
-
-  a {
-    color: #dcdcdc
-  }
+.el_button_inner {
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  background: #6A5E76;
+  padding: 10px 30px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  border: none;
+  color: $white;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  text-shadow: none;
+  transition: 0.2s;
 }
 
+.el_button_inner:hover:not(:disabled) {
+  background: $white;
+  border-color: currentColor;
+  color: $purple;
+}
 
-.indexWrapper {
+.el_button_inner:disabled {
+  background: $disabled;
+  cursor: auto;
+}
+
+/*====================================
+
+	layoutクラス
+
+====================================*/
+
+.ly_pageWrapper {
   padding: 20px 10px;
   max-width: 960px;
   margin: 0 auto;
@@ -125,65 +177,65 @@ body {
   }
 }
 
-.pageWrapper {
+.ly_page {
   position: relative;
 }
 
-.nav {
-  padding: 10px 5px;
+// .ly_nav {
+//   padding: 10px 5px;
 
-  >a {
-    font-weight: 900;
-    font-size: 30px;
+//   >a {
+//     font-weight: 900;
+//     font-size: 30px;
 
-    @include mediaQuery {
-      font-size: 40px;
-    }
-  }
-}
+//     @include mediaQuery {
+//       font-size: 40px;
+//     }
+//   }
+// }
 
-.introduce {
+.ly_introduce {
   margin-top: 20px;
   max-width: 600px;
 }
 
-.categoryPageHeader {
+.ly_pageHeader {
   margin-top: 20px;
   font-size: 26px;
 }
 
-.previewAlert {
+.ly_previewAlert {
   padding: 20px 30px;
 }
 
-.ly-headWrap {
+.ly_pageHeader_wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-/*====================================
+.ly_footer {
+  padding: 40px;
+  font-size: 20px;
+  text-align: center;
 
-	container(トップページのリストカードの枠)
+  a {
+    color: $purple;
+  }
+}
 
-====================================*/
-.container {
+.ly_container {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.container_item {
+.ly_container_item {
   width: calc(100% / 3 - 10px);
   margin: 20px 5px 0;
   min-width: 160px;
   min-height: 280px;
   transition: 0.5s;
-
-
-  &:hover {
-    background: #000;
-  }
 
   @include mediaQuery {
     width: calc(100% / 3 - 20px);
@@ -201,32 +253,33 @@ body {
     width: 100%;
     margin: 20px 10px 0;
   }
-
-  @include mediaQuery('dark') {
-    &:hover {
-      background: #111;
-    }
-  }
 }
 
+.ly_blogDetail {
+  padding: 10px 25px;
+}
 
-// .container_listItem {
-//   width: 100%;
-//   margin: 20px 5px 0;
-//   transition: 0.5s;
+// .ly_blogDetail_header {}
 
-//   &:hover {
-//     background: #000;
-//   }
-// }
-
+// .ly_blogDetail_body {}
 
 /*====================================
 
 	card(トップページのリストカード単体)
 
 ====================================*/
-.card {
+
+.bl_navTitle {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+/*====================================
+
+	card(トップページのリストカード単体)
+
+====================================*/
+.bl_card {
   background: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
@@ -235,9 +288,13 @@ body {
   @include mediaQuery('dark') {
     background: #333;
   }
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
-.card_imgWrap {
+.bl_card_imgWrap {
   margin-top: 10px;
   height: 150px;
   position: relative;
@@ -253,27 +310,22 @@ body {
   }
 }
 
-.card_textWrap {
+.bl_card_textWrap {
   padding: 5px;
 }
 
-.card_title {
+.bl_card_title {
   margin-top: 10px;
   font-size: 16px;
 }
 
-.card_text {
+.bl_card_text {
   margin-top: 10px;
   font-size: 14px;
-  color: #888;
+  color: $middle;
 }
 
-.categories {
-  margin-top: 20px;
-  justify-content: flex-end;
-}
-
-.card_categories {
+.bl_card_categories {
   margin-top: 10px;
 }
 
@@ -283,16 +335,22 @@ body {
 
 ====================================*/
 
-.categoryWrap {
+.bl_category_wrapper {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.categoryWrap_category {
+.bl_category_wrapper__right {
+  justify-content: flex-end;
+}
+
+.bl_category {
   font-size: 11px;
   padding: 3px;
   margin-right: 3px;
   border-radius: 10px;
-  background-color: #607d8b;
+  background-color: $blue;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
 
   @include mediaQuery {
@@ -302,57 +360,40 @@ body {
   }
 
   p {
-    color: #f4f7f9;
+    color: $white;
   }
+}
+
+.bl_category_tag {
+  color: $blue;
+  margin: 5px;
+  display: flex;
+  align-items: center;
 }
 
 /*====================================
 
-  blogDetailPage(ブログ詳細ページ、リッチテキスト部分)
+  blogHeader
 
 ====================================*/
 
-.blogDetailPage {}
+.blogHeader {}
 
-.blogDetailPage_inner {
-  padding: 10px 25px;
-}
-
-.blogDetailPage_body {
-  p {
-    margin: 20px 0;
-  }
-}
-
-.blogDetailPage_img {
-  width: 70%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/*====================================
-
-  blogHead(ブログページの上半分)
-
-====================================*/
-
-.blogHead {}
-
-.blogHeader_title {
+.bl_blogHeader_title {
   margin-top: 10px;
   font-size: 36px;
 }
 
-.blogHeader_subtitle {
+.bl_blogHeader_subtitle {
   margin-top: 20px;
   font-size: 20px
 }
 
-.blogHeader_categories {
+.bl_blogHeader_categories {
   margin-top: 10px;
 }
 
-.blogHeader_imgWrap {
+.bl_blogHeader_imgWrap {
   margin-top: 10px;
   width: 100%;
 
@@ -362,65 +403,54 @@ body {
   }
 }
 
-/*buttonコンポーネント*/
+/*====================================
 
-.bl-button {
-  text-align: center;
+  blogBody
+
+====================================*/
+
+.bl_blogBody {
+  img {
+    width: 70%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  p {
+    margin-top: 20px;
+  }
 }
 
-.bl-button_inner {
-  cursor: pointer;
-  display: inline-block;
-  max-width: 100%;
-  background: #6A5E76;
-  padding: 10px 30px;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  width: 150px;
-  border: none;
-  color: #ffffff;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  text-shadow: none;
-  transition: 0.2s;
-}
+/*====================================
 
-.bl-button_inner:hover:not(:disabled) {
-  background: #fff;
-  border-color: currentColor;
-  color: #6A5E76;
-}
+  searchBox
 
-.bl-button_inner:disabled {
-  background: #ccc;
-  cursor: auto;
-}
+====================================*/
 
-.bl-searchBox {
+.bl_searchBox {
   padding: 10px;
   text-align: right;
   margin: 0 0 0 auto
 }
 
-.bl-searchBox_header {
+.bl_searchBox_header {
   margin-top: 10px;
 }
 
-.bl-searchBox_textArea {
+.bl_searchBox_textArea {
   margin-top: 10px;
   position: relative;
 
 }
 
-.bl-searchBox_icon {
+.bl_searchBox_icon {
   position: absolute;
   left: 5px;
   bottom: 50%;
   transform: translateY(50%);
 }
 
-.bl-searchBox_input {
+.bl_searchBox_input {
   border-radius: 5px;
   border: 1px solid #999;
   background-color: #fff;
@@ -428,62 +458,44 @@ body {
   width: 130px;
 }
 
-//
-.bl-button2 {
+.bl_button2 {
   margin-top: 5px;
   position: relative;
   display: inline-block;
 }
 
-.bl-button2_inner {
+.bl_button2_inner {
   padding: 5px 25px 5px 10px;
   border: 1px solid currentColor;
-  color: #2b2c38;
+  color: $black;
   text-decoration: none;
   border-radius: 5px;
   transition: .5s;
-  cursor: pointer;
   text-align: center;
 }
 
-.bl-button2_icon {
+.bl_button2_icon {
   position: absolute;
   right: 5px;
   bottom: 50%;
   transform: translateY(50%);
-  color: #777;
+  color: $black;
   pointer-events: none;
   transition: .25s;
-  background-color: rgba(0, 0, 0, 0);
 }
 
-.bl-button2:focus,
-.bl-button2:hover {
+.bl_button2:focus,
+.bl_button2:hover {
 
-  .bl-button2_inner,
-  .bl-button2_inner {
-    background-color: #2b2c38;
-    color: #CECABF;
+  .bl_button2_inner:not(:disabled),
+  .bl_button2_inner:not(:disabled) {
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
   }
 
-  .bl-button2_icon {
-    color: #CECABF;
-  }
-}
-
-
-/*====================================
-
-  footerLayout(下部3つ並びのリンク)
-
-====================================*/
-
-.footer {
-  padding: 40px;
-  font-size: 20px;
-  text-align: center;
-
-  a {
-    color: #6A5E76;
+  .bl_button2_inner:not(:disabled)~.bl_button2_icon,
+  .bl_button2_inner:not(:disabled)~.bl_button2_icon {
+    color: $white;
   }
 }

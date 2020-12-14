@@ -1,7 +1,7 @@
 
 export default function PreviewAlert() {
   return (
-    <div className="previewAlert">
+    <div className="ly_previewAlert">
       <p>This is the preview mode!</p>
       {/* TODO: This will lead me to API route that will remove preview cookies */}
       <a

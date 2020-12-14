@@ -4,10 +4,10 @@ import 'styles/index.scss';
 import 'highlight.js/styles/darcula.css';
 
 import { config, library } from '@fortawesome/fontawesome-svg-core';
-import { faBorderAll, faList, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTags } from '@fortawesome/free-solid-svg-icons';
 
 config.autoAddCss = false;
-library.add(faList, faBorderAll,faSearch);
+library.add(faSearch,faTags);
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

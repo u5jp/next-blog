@@ -25,21 +25,27 @@ export default function Home({ query, preview }) {
   return (
     <PageLayout>
       {preview && <PreviewAlert />}
-      <div className="ly-headWrap">
-      <h1 className="categoryPageHeader">
-        Search Page<br/>Target : {search?search:"All blogs"}
-      </h1>
+      <div className="ly_pageHeader_wrapper">
+        <div className="ly_pageHeader">
+          <h1>
+              Search Page<br />
+          </h1>
+          <h2>
+              Target : {search}<br />
+              Items : {blogs.length}
+          </h2>
+        </div>
 
-      <SearchBox
-        handleSubmit={handleSubmit}
-        text={text}
-        setText={setText}
+        <SearchBox
+          handleSubmit={handleSubmit}
+          text={text}
+          setText={setText}
         />
       </div>
-      <div className="container">
+      <div className="ly_container">
         {blogs.map((blog) => (
           <CardItem
-            className="container_item"
+            className="ly_container_item"
             key={blog.fields.slug}
             title={blog.fields.title}
             subtitle={blog.fields.subtitle}

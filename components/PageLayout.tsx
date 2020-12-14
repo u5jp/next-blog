@@ -14,10 +14,10 @@ const PageLayout = ({ children, className }:PropsOptional) => {
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;900&display=swap" rel="stylesheet"/>
       </Head>
-      <div className="indexWrapper">
-        <Navbar />
-        <div className={`pageWrapper ${className}`}>{children}</div>
-        <footer className="footer">
+      <div className="ly_pageWrapper">
+        <Navbar/>
+        <div className={`ly_page ${className}`}>{children}</div>
+        <footer className="ly_footer">
           <div>
             <Link href="/"><a
               className="hp-clickable hp-hoverable"
