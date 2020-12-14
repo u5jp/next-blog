@@ -26,10 +26,10 @@ export default function blogHeader({
           />
         ))}
       </div>
-      <h2 className="bl_blogHeader_subtitle">{subtitle}</h2>
       <div className="bl_blogHeader_imgWrap">
         <img src={thumbnail.fields.file.url} alt={thumbnail.fields.title} />
       </div>
+      <h2 className="bl_blogHeader_subtitle">{subtitle}</h2>
     </div>
   );
 }

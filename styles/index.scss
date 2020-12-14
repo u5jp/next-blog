@@ -256,7 +256,7 @@ body {
 }
 
 .ly_blogDetail {
-  padding: 10px 25px;
+  padding: 40px 25px 10px;
 }
 
 // .ly_blogDetail_header {}
@@ -394,7 +394,7 @@ body {
 }
 
 .bl_blogHeader_imgWrap {
-  margin-top: 10px;
+  margin-top: 30px;
   width: 100%;
 
   >img {
@@ -411,13 +411,30 @@ body {
 
 .bl_blogBody {
   img {
+    margin: 20px auto 0;
     width: 70%;
     max-width: 500px;
-    margin: 0 auto;
+  }
+
+  pre {
+    margin: 20px 20px 0;
+  }
+
+  code {
+    padding: 20px;
   }
 
   p {
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 30px;
   }
 }
 
