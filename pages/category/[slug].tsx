@@ -35,8 +35,7 @@ const Category = ({ cate, blogs: initialData,preview }) => {
           Category Page
         </h1>
         <h2>
-          Tag : {cate?.fields.category}<br />
-          Items : {blogs.length}
+          Tag : {cate?.fields.category}
         </h2>
       </div>
       <div className="ly_container">

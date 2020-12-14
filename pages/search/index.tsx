@@ -31,8 +31,7 @@ export default function Home({ query, preview }) {
               Search Page<br />
           </h1>
           <h2>
-              Target : {search}<br />
-              Items : {blogs.length}
+              Target : {search}
           </h2>
         </div>
 
