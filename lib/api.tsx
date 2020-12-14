@@ -2,6 +2,8 @@ import client, { previewClient } from './contentful';
 
 const getClient = preview => preview ? previewClient : client
 
+export const limit = 3;
+
 //全てのブログの取得
 export async function getAllBlogs() {
   const entries = await client
@@ -79,7 +81,7 @@ export async function getPaginatedBlogs(
     .getEntries({
       content_type: "blogs",
       skip: `${offset}`,
-      limit: 3,
+      limit: `${limit}`,
       order: "-fields.date",
       query:`${search}`
     })
@@ -99,7 +101,7 @@ export async function getPaginatedBlogsContainCate(
       content_type: "blogs",
       links_to_entry: `${id}`,
       skip: `${offset}`,
-      limit: 3,
+      limit: `${limit}`,
       order: "-fields.date",
     })
     .then((res) => res.items)
