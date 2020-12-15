@@ -1,0 +1,93 @@
+/*====================================
+
+	layoutクラス
+
+====================================*/
+
+.ly_pageWrapper {
+  padding: 20px 10px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+
+  @include mediaQuery {
+    padding: 30px 20px;
+  }
+
+  &:after {
+    content: "Browser：Light mode";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  @include mediaQuery(dark) {
+    &:after {
+      content: "Browser：Dark mode"
+    }
+  }
+}
+
+.ly_page {
+  position: relative;
+}
+
+
+.ly_footer {
+  padding: 30px;
+  font-size: 18px;
+  text-align: center;
+
+  a {
+    color: $purple;
+  }
+
+  @include mediaQuery {
+    padding: 40px;
+    font-size: 20px;
+  }
+}
+
+.ly_container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.ly_container_item {
+  width: calc(100% / 3 - 10px);
+  margin: 20px 5px 0;
+  min-width: 160px;
+  min-height: 280px;
+  transition: 0.5s;
+
+  @include mediaQuery {
+    width: calc(100% / 3 - 20px);
+    margin: 30px 10px 0;
+  }
+
+  @include mediaQuery(mobile) {
+    width: calc(100% / 2 - 10px);
+    margin: 20px 5px 0;
+    min-width: 160px;
+    transition: 0.5s;
+  }
+
+  @include mediaQuery(smallMobile) {
+    width: 100%;
+    margin: 20px 10px 0;
+  }
+}
+
+.ly_blogDetail {
+  padding: 30px 10px 5px;
+
+  @include mediaQuery {
+    padding: 40px 25px 10px;
+
+  }
+}
+
+// .ly_blogDetail_header {}
+
+// .ly_blogDetail_body {}

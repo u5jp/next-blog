@@ -31,12 +31,14 @@ const Category = ({ cate, blogs: initialData,preview }) => {
     <PageLayout>
       {preview && <PreviewAlert/>}
       <div className="bl_pageHeader">
-        <h1 className="bl_pageHeader_title">
-          Category Page
-        </h1>
-        <h2 className="bl_pageHeader_subtitle">
-          Tag : {cate?.fields.category}
-        </h2>
+        <div className="bl_pageHeader_inner">
+          <h1 className="bl_pageHeader_title">
+            Category Page
+          </h1>
+          <h2 className="bl_pageHeader_subtitle">
+            Tag : {cate?.fields.category}
+          </h2>
+        </div>
       </div>
       <div className="ly_container">
         {blogs.map((blog) => (

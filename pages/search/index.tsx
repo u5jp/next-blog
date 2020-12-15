@@ -9,7 +9,7 @@ import { getAllCate } from 'lib/api';
 import { useState } from 'react';
 
 export default function Home({ query, preview }) {
-  const [text, setText] = useState(query.search);
+  const [text, setText] = useState("");
   const [search, setSearch] = useState(query.search);
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages({

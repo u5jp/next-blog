@@ -1,5 +1,4 @@
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import 'styles/reset.scss';
 import 'styles/index.scss';
 import 'highlight.js/styles/darcula.css';
 

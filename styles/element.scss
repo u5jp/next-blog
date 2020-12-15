@@ -1,0 +1,84 @@
+/*====================================
+
+	elementクラス
+
+====================================*/
+
+.el_button {
+  text-align: center;
+}
+
+.el_button_inner {
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  background: #6A5E76;
+  padding: 10px 30px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  border: none;
+  color: $white;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  text-shadow: none;
+  transition: 0.2s;
+}
+
+.el_button_inner:hover:not(:disabled) {
+  background: $white;
+  border-color: currentColor;
+  color: $purple;
+}
+
+.el_button_inner:disabled {
+  background: $disabled;
+  cursor: auto;
+}
+
+.el_inputButton {
+  margin-top: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.el_inputButton_inner {
+  -webkit-appearance: none;
+  padding: 5px 30px 5px 15px;
+  border: 1px solid currentColor;
+  color: $black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: .5s;
+  text-align: center;
+  background-color: #6d6d74;
+  font-size: 16px;
+}
+
+.el_inputButton_inner:not(:disabled) {
+  background-color: #efefef;
+}
+
+.el_inputButton_icon {
+  position: absolute;
+  right: 5px;
+  bottom: 50%;
+  transform: translateY(50%);
+  color: $black;
+  pointer-events: none;
+  transition: .25s;
+}
+
+.el_inputButton:focus,
+.el_inputButton:hover {
+  .el_inputButton_inner:not(:disabled) {
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
+  }
+
+  .el_inputButton_inner:not(:disabled)~.bl_button2_icon {
+    color: $white;
+  }
+}

@@ -1,0 +1,42 @@
+/*====================================
+
+	helperクラス
+
+====================================*/
+
+
+.hp-displayNone__mobile {
+  @include mediaQuery($query: mobile) {
+    display: none !important;
+  }
+}
+
+.hp-displayNone__desktop {
+  @include mediaQuery() {
+    display: none !important;
+  }
+}
+
+.hp-clickable:hover {
+  cursor: pointer;
+}
+
+.hp-hoverable:hover {
+  opacity: 0.7;
+}
+
+.hp-red-text {
+  color: $red !important;
+}
+
+.hp-mt10 {
+  margin-top: 10px;
+}
+
+.hp-mt20 {
+  margin-top: 20px;
+}
+
+.hp-mt30 {
+  margin-top: 30px;
+}

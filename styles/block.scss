@@ -1,0 +1,304 @@
+/*====================================
+
+  blockクラス
+
+====================================*/
+
+.bl_navTitle {
+  font-size: 40px;
+  font-weight: 900;
+
+  @include mediaQuery {
+    font-size: 48px;
+  }
+}
+
+.bl_introduce {
+  max-width: 600px;
+  padding: 10px 10px 20px;
+
+  @include mediaQuery {
+    padding: 10px 0 20px;
+  }
+}
+
+.bl_previewAlert {
+  padding: 20px 30px;
+}
+
+.bl_pageHeader {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include mediaQuery {
+    margin-top: 40px;
+  }
+}
+
+//.bl_pageHeader_inner←フレックス用wrap
+
+.bl_pageHeader_title {
+  font-size: 24px;
+
+  @include mediaQuery {
+    font-size: 26px;
+  }
+}
+
+.bl_pageHeader_subtitle {
+  margin-top: 10px;
+  font-size: 22px;
+
+  @include mediaQuery {
+    margin-top: 15px;
+    font-size: 24px;
+  }
+}
+
+/*====================================
+
+	card(トップページのリストカード単体)
+
+====================================*/
+.bl_card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
+  padding: 10px 15px 5px;
+
+  @include mediaQuery(dark) {
+    background: #333;
+  }
+
+  @include mediaQuery {
+    padding: 15px 20px 5px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.bl_card_imgWrap {
+  margin-top: 10px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+
+  >img {
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
+}
+
+.bl_card_textWrap {
+  padding: 5px;
+}
+
+.bl_card_title {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.bl_card_text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: $middle;
+}
+
+.bl_card_categories {
+  margin-top: 10px;
+}
+
+/*====================================
+
+  category(リストカードについてるタグ)
+
+====================================*/
+
+.bl_category_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bl_category_wrapper__right {
+  justify-content: flex-end;
+}
+
+.bl_category {
+  margin-top: 5px;
+  font-size: 13px;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+  background-color: $blue;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+
+  p {
+    color: $white;
+  }
+}
+
+.bl_category_tagWrap {
+  margin-top: 5px;
+  color: $blue;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/*====================================
+
+  blogHeader
+
+====================================*/
+
+.blogHeader {}
+
+.bl_blogHeader_title {
+  margin-top: 10px;
+  font-size: 36px;
+
+  @include mediaQuery {
+    margin-top: 20px;
+    font-size: 40px;
+  }
+}
+
+.bl_blogHeader_subtitle {
+  margin-top: 20px;
+  font-size: 26px;
+
+  @include mediaQuery {
+    margin-top: 30px;
+    font-size: 32px;
+  }
+}
+
+.bl_blogHeader_categories {
+  margin-top: 10px;
+
+  @include mediaQuery {
+    margin-top: 20px;
+  }
+}
+
+.bl_blogHeader_imgWrap {
+  margin-top: 20px;
+  width: 100%;
+
+  @include mediaQuery {
+    margin-top: 30px;
+  }
+
+  >img {
+    margin: 0 auto;
+    width: 90%;
+
+    @include mediaQuery {
+      width: 80%;
+    }
+  }
+}
+
+/*====================================
+
+  blogBody
+
+====================================*/
+
+.bl_blogBody {
+  img {
+    margin: 20px auto 0;
+    width: 80%;
+    max-width: 500px;
+
+    @include mediaQuery {
+      width: 70%;
+    }
+  }
+
+  pre {
+    margin: 0;
+
+    @include mediaQuery {
+      margin: 20px 20px 0;
+    }
+  }
+
+  code {
+    padding: 10px;
+
+    @include mediaQuery {
+      padding: 20px;
+    }
+  }
+
+  p {
+    margin-top: 20px;
+
+    @include mediaQuery {
+      margin-top: 15px;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 25px;
+
+    @include mediaQuery {
+      margin-top: 30px;
+    }
+  }
+}
+
+/*====================================
+
+  searchBox
+
+====================================*/
+
+.bl_searchBox {
+  padding: 10px;
+  text-align: right;
+  align-self: flex-end;
+  margin: 0 0 0 auto
+}
+
+.bl_searchBox_header {
+  font-size: 20px;
+
+  @include mediaQuery {
+    font-size: 22px;
+  }
+}
+
+.bl_searchBox_input {
+  display: block;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.bl_searchBox_icon {
+  position: absolute;
+  left: 5px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
