@@ -50,7 +50,6 @@ const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
       </div>
       <div className="ly_container">
         {blogs.map((blog,index) => {
-          console.log(blog)
           return <CardItem
             className="ly_container_item"
             key={index}
