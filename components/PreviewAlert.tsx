@@ -1,9 +1,9 @@
+import { FC } from 'react';
 
-export default function PreviewAlert() {
+const PreviewAlert:FC = () => {
   return (
     <div className="ly_previewAlert">
       <p>This is the preview mode!</p>
-      {/* TODO: This will lead me to API route that will remove preview cookies */}
       <a
         className="hp-red-text hp-hoverable hp-clickable"
         href="/api/exit-preview">
@@ -12,3 +12,5 @@ export default function PreviewAlert() {
     </div>
   )
 }
+
+export default PreviewAlert

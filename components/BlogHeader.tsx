@@ -1,13 +1,16 @@
 import CategoryTag from 'components/CategoryTag';
+import { FC } from 'react';
 
-export default function blogHeader({
+type Props = fields & className
+
+const BlogHeader:FC<Props> = ({
   className,
   date,
   title,
   subtitle,
   thumbnail,
   categories,
-}) {
+}) => {
   return (
     <div className={`bl_blogHeader ${className}_header`}>
       <p className="bl_blogHeader_date">{date}</p>
@@ -18,13 +21,10 @@ export default function blogHeader({
             key={index}
             index={index}
             className="bl_category"
-            category={category.fields.category}
-            link={{
-              href: "/category/[slug]",
-              as: `/category/${category.fields.slug}`,
-            }}
+            {...category.fields}
           />
-        ))}
+          )
+        )}
       </div>
       <div className="bl_blogHeader_imgWrap">
         <img src={thumbnail.fields.file.url} alt={thumbnail.fields.title} />
@@ -33,3 +33,5 @@ export default function blogHeader({
     </div>
   );
 }
+
+export default BlogHeader;

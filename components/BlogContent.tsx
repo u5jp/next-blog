@@ -1,7 +1,10 @@
 import HighlightCode from 'components/HighlightCode';
+import { FC } from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { MARKS } from '@contentful/rich-text-types';
+
+type Props = className & any
 
 const options = {
   renderNode: {
@@ -16,9 +19,9 @@ const options = {
   },
 };
 
-const BlogContent = ({ className,body }) => {
+const BlogContent:FC<Props> = ({ className,body }) => {
   return (
-    <div className="ly_blogDetail_body bl_blogBody">
+    <div className={`${className}_body bl_blogBody`}>
       {documentToReactComponents(body, options)}
     </div>
   );

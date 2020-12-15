@@ -1,24 +1,29 @@
 import CategoryTag from 'components/CategoryTag';
 import Link from 'next/link';
+import { FC } from 'react';
 
-const CardItem = ({
-  className,
-  title,
-  subtitle,
-  date,
-  src,
-  categories,
-  link,
-}) => {
+type Props = fields & className
+
+const CardItem:FC<Props> = ({
+    className,
+    categories,
+    date,
+    subtitle,
+    thumbnail,
+    title,
+    slug,
+  }) => {
   return (
     <div className={`${className} hp-clickable hp-hoverable`}>
       {Link && (
-        <Link {...link}>
-          <a>
+        <Link
+          href="/blogs/[slug]"
+          as={`/blogs/${slug}`}
+        ><a>
             <div className="bl_card">
               <p>{date}</p>
               <div className="bl_card_imgWrap">
-                <img src={src} />
+                <img src={thumbnail.fields.file.url} />
               </div>
               <div className="bl_card_textWrap">
                 <p className="bl_card_title">{title}</p>
@@ -26,21 +31,17 @@ const CardItem = ({
               </div>
               <div className="bl_card_categories bl_category_wrapper">
                 {categories.map((category, index) => (
-                  <CategoryTag
-                    key={index}
-                    index={index}
-                    className="bl_category"
-                    category={category.fields.category}
-                    link={{
-                      href: "/category/[slug]",
-                      as: `/category/${category.fields.slug}`,
-                    }}
-                  />
-                ))}
+                    <CategoryTag
+                      key={index}
+                      index={index}
+                      className="bl_category"
+                      {...category.fields}
+                    />
+                  )
+                )}
               </div>
             </div>
-          </a>
-        </Link>
+        </a></Link>
       )}
     </div>
   );

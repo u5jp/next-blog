@@ -2,7 +2,7 @@ import client, { previewClient } from './contentful';
 
 const getClient = preview => preview ? previewClient : client
 
-export const limit = 6;
+export const limit:number = 6;
 
 //全てのブログの取得
 export async function getAllBlogs() {

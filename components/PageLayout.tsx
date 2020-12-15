@@ -1,14 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { FC } from 'react';
 
 import Navbar from './Navbar';
 
-type PropsOptional = {
-  className?: string;
-  children: React.ReactNode;
-};
-
-const PageLayout = ({ children, className }:PropsOptional) => {
+const PageLayout:FC<className> = ({ children, className }) => {
   return (
     <>
       <Head>

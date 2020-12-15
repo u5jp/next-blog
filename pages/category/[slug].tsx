@@ -4,10 +4,18 @@ import CardItem from 'components/CardItem';
 import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import { getAllCate, getBlogsContainCate, getCate } from 'lib/api';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
+import { FC } from 'react';
 
-const Category = ({ cate, blogs: initialData,preview }) => {
+type Props = {
+  cate: category
+  blogs: blog[]
+  preview: boolean
+}
+
+const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
   const router = useRouter();
 
   if (!router.isFallback && !cate?.fields.slug) {
@@ -41,21 +49,14 @@ const Category = ({ cate, blogs: initialData,preview }) => {
         </div>
       </div>
       <div className="ly_container">
-        {blogs.map((blog) => (
-          <CardItem
+        {blogs.map((blog,index) => {
+          console.log(blog)
+          return <CardItem
             className="ly_container_item"
-            key={blog.fields.slug}
-            title={blog.fields.title}
-            subtitle={blog.fields.subtitle}
-            date={blog.fields.date}
-            src={blog.fields.thumbnail.fields.file.url}
-            categories={blog.fields.categories}
-            link={{
-              href: "/blogs/[slug]",
-              as: `/blogs/${blog.fields.slug}`,
-            }}
+            key={index}
+            {...blog.fields}
           />
-        ))}
+        })}
       </div>
       <Button
         className={"hp-mt20"}
@@ -67,7 +68,7 @@ const Category = ({ cate, blogs: initialData,preview }) => {
   );
 };
 
-export async function getStaticProps({ params,preview=false }) {
+export const getStaticProps:GetStaticProps = async({ params,preview=false }) => {
   const cate = await getCate(params.slug);
   const blogs = await getBlogsContainCate(cate.sys.id);
 
@@ -80,10 +81,10 @@ export async function getStaticProps({ params,preview=false }) {
   };
 }
 
-export async function getStaticPaths() {
-  const cates = await getAllCate();
+export const getStaticPaths:GetStaticPaths = async() => {
+  const cates:category[] = await getAllCate();
   return {
-    paths: cates?.map((b:any) => ({ params: { slug: b.fields.slug } })),
+    paths: cates?.map((b) => ({ params: { slug: b.fields.slug } })),
     fallback: true,
   };
 }

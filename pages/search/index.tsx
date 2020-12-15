@@ -1,23 +1,28 @@
 import { useGetBlogsPages } from 'actions/pagination';
 import Button from 'components/Button';
 import CardItem from 'components/CardItem';
-import CategoryTag from 'components/CategoryTag';
 import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import SearchBox from 'components/SearchBox';
-import { getAllCate } from 'lib/api';
-import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import { FC, useState } from 'react';
 
-export default function Home({ query, preview }) {
+type Props = {
+  query:{search:string},
+  preview:boolean
+}
+
+const Search:FC<Props> = ({ query, preview }) => {
+
   const [text, setText] = useState("");
   const [search, setSearch] = useState(query.search);
-
   const { data, size, setSize, hitEnd } = useGetBlogsPages({
     search,
   });
-  const blogs = data ? [].concat(...data) : [];
+  const blogs:blog[] = data ? [].concat(...data) : [];
 
-  const handleSubmit = (e) => {
+  const handleSubmit =
+    (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch(text);
   };
@@ -42,19 +47,10 @@ export default function Home({ query, preview }) {
         />
       </div>
       <div className="ly_container">
-        {blogs.map((blog) => (
-          <CardItem
+        {blogs.map((blog,index) => (<CardItem
             className="ly_container_item"
-            key={blog.fields.slug}
-            title={blog.fields.title}
-            subtitle={blog.fields.subtitle}
-            date={blog.fields.date}
-            src={blog.fields.thumbnail.fields.file.url}
-            categories={blog.fields.categories}
-            link={{
-              href: "/blogs/[slug]",
-              as: `/blogs/${blog.fields.slug}`,
-            }}
+            key={index}
+            {...blog.fields}
           />
         ))}
       </div>
@@ -68,11 +64,14 @@ export default function Home({ query, preview }) {
   );
 }
 
-export async function getServerSideProps({ query, preview = false }) {
-  return {
-    props: {
-      query,
-      preview,
-    },
-  };
+export const getServerSideProps: GetServerSideProps =
+async ({ query, preview = false }) => {
+    return {
+      props: {
+        query,
+        preview,
+      },
+    };
 }
+
+export default Search

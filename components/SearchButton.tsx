@@ -1,6 +1,12 @@
+import { FC } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SearchButton({disabled}) {
+type Props = {
+  disabled:boolean
+}
+
+const SearchButton:FC<Props> = ({disabled}) => {
   return (
     <div className="el_inputButton">
       <input

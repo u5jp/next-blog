@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { FC } from 'react';
 
-const Navbar = () => {
+const Navbar:FC = () => {
   return (
     <nav className="ly_nav">
       <Link href="/">

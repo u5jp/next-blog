@@ -1,4 +1,6 @@
-const Introduce = () => {
+import { FC } from 'react';
+
+const Introduce:FC = () => {
   return (
     <p className="bl_introduce">
       My name is u5 and I am an experienced Web design and engineering.<br/>

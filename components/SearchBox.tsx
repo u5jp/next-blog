@@ -1,17 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FC } from 'react';
 
 import SearchButton from './SearchButton';
 
 type PropsOptional<T> = {
-  handleSubmit: (e: any) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   setText: (param:T)=>void;
   text?: T;
 };
 
-function SearchBox({
-  handleSubmit,
-  setText,
-  text}: PropsOptional<string>) {
+const SearchBox: FC<PropsOptional<string>> =
+  ({handleSubmit,setText,text}) => {
 
   return (
     <div className="bl_searchBox">

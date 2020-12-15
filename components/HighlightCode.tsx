@@ -1,8 +1,8 @@
 import highlight from 'highlight.js';
-import { createRef, useEffect } from 'react';
+import { createRef, FC, useEffect } from 'react';
 import { findDOMNode } from 'react-dom';
 
-const HighlightCode = ({ children }) => {
+const HighlightCode:FC = ({ children }) => {
   const code = createRef<HTMLDivElement>();
 
   useEffect(() => {

@@ -1,9 +1,11 @@
 import { getBlogs } from 'actions';
 import { limit } from 'lib/api';
-import { useSWRInfinite } from 'swr';
+import { SWRInfiniteResponseInterface, useSWRInfinite } from 'swr';
 
-export const useGetBlogsPages = ({ id = "", search = "" } = { id: "", search: "" }) => {
-  const result = useSWRInfinite((index, previousPageData) => {
+export const useGetBlogsPages =
+  ({ id = "", search = "" } = { id: "", search: "" }) => {
+  const result: SWRInfiniteResponseInterface<fields[],any> =
+  useSWRInfinite((index, previousPageData) => {
     if (previousPageData && !previousPageData.length) return null;
     if (id) return `/api/category?id=${id}&offset=${index * limit}`;
     if (search) return `/api/pagination?offset=${index * limit}&search=${search}`;

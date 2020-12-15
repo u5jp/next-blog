@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 type PropsOptional<T> = {
   className?: string;
@@ -7,7 +7,7 @@ type PropsOptional<T> = {
   size: T;
 };
 
-function Button({className,hitEnd,setSize,size}:PropsOptional<number>) {
+const Button:FC<PropsOptional<number>> = ({className,hitEnd,setSize,size}) => {
   return (
     <div className={`el_button ${className}`}>
       <button
