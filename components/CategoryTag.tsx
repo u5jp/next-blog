@@ -6,11 +6,12 @@ const CategoryTags = ({ index, className, link, category }) => {
   return (
     <>
       {index === 0 ?
-        <FontAwesomeIcon
-          size="1x"
-          icon="tags"
-          className={`${className}_tag`}
-        />:""}
+        <div className={`${className}_tagWrap`}>
+          <FontAwesomeIcon
+            size="1x"
+            icon="tags"
+          />
+        </div>:""}
       <div className={`${className} hp-clickable hp-hoverable`}>
         {Link && (
           <Link {...link}>

@@ -51,7 +51,7 @@ body {
   color: $black;
 }
 
-@include mediaQuery('dark') {
+@include mediaQuery(dark) {
 
   html,
   body {
@@ -170,7 +170,7 @@ body {
     top: 10px;
   }
 
-  @include mediaQuery('dark') {
+  @include mediaQuery(dark) {
     &:after {
       content: "Browser：Dark mode"
     }
@@ -181,46 +181,63 @@ body {
   position: relative;
 }
 
-// .ly_nav {
-//   padding: 10px 5px;
-
-//   >a {
-//     font-weight: 900;
-//     font-size: 30px;
-
-//     @include mediaQuery {
-//       font-size: 40px;
-//     }
-//   }
-// }
-
 .ly_introduce {
-  margin-top: 20px;
   max-width: 600px;
-}
+  padding: 10px 10px 20px;
 
-.ly_pageHeader {
-  margin-top: 20px;
-  font-size: 26px;
+  @include mediaQuery{
+    padding: 10px 0 20px;
+  }
 }
 
 .ly_previewAlert {
   padding: 20px 30px;
 }
 
-.ly_pageHeader_wrapper {
+.bl_pageHeader {
+  margin-top: 30px;
   display: flex;
+  align-items: flex-end;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @include mediaQuery {
+    margin-top: 40px;
+  }
+}
+
+//.bl_pageHeader_inner←フレックス用wrap
+
+.bl_pageHeader_title {
+  font-size: 24px;
+
+  @include mediaQuery {
+    font-size: 26px;
+  }
+}
+
+.bl_pageHeader_subtitle {
+  margin-top: 10px;
+  font-size: 22px;
+
+  @include mediaQuery {
+    margin-top: 15px;
+    font-size: 24px;
+  }
 }
 
 .ly_footer {
-  padding: 40px;
-  font-size: 20px;
+  padding: 30px;
+  font-size: 18px;
   text-align: center;
 
   a {
     color: $purple;
+  }
+
+  @include mediaQuery {
+    padding: 40px;
+    font-size: 20px;
   }
 }
 
@@ -256,7 +273,12 @@ body {
 }
 
 .ly_blogDetail {
-  padding: 40px 25px 10px;
+  padding: 30px 10px 5px;
+
+  @include mediaQuery {
+    padding: 40px 25px 10px;
+
+  }
 }
 
 // .ly_blogDetail_header {}
@@ -272,6 +294,10 @@ body {
 .bl_navTitle {
   font-size: 40px;
   font-weight: 900;
+
+  @include mediaQuery {
+    font-size: 48px;
+  }
 }
 
 /*====================================
@@ -283,10 +309,14 @@ body {
   background: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
-  padding: 15px 20px 5px;
+  padding: 10px 15px 5px;
 
-  @include mediaQuery('dark') {
+  @include mediaQuery(dark) {
     background: #333;
+  }
+
+  @include mediaQuery {
+    padding: 15px 20px 5px;
   }
 
   &:hover {
@@ -304,6 +334,7 @@ body {
     position: absolute;
     object-fit: cover;
     height: 100%;
+    width: 100%;
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%);
@@ -339,6 +370,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .bl_category_wrapper__right {
@@ -346,27 +378,23 @@ body {
 }
 
 .bl_category {
-  font-size: 11px;
-  padding: 3px;
-  margin-right: 3px;
+  margin-top: 5px;
+  font-size: 13px;
+  padding: 5px;
+  margin-right: 5px;
   border-radius: 10px;
   background-color: $blue;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
-
-  @include mediaQuery {
-    font-size: 12px;
-    padding: 5px;
-    margin-right: 5px;
-  }
 
   p {
     color: $white;
   }
 }
 
-.bl_category_tag {
+.bl_category_tagWrap {
+  margin-top: 5px;
   color: $blue;
-  margin: 5px;
+  padding: 5px;
   display: flex;
   align-items: center;
 }
@@ -382,24 +410,46 @@ body {
 .bl_blogHeader_title {
   margin-top: 10px;
   font-size: 36px;
+
+  @include mediaQuery {
+    margin-top: 20px;
+    font-size: 40px;
+  }
 }
 
 .bl_blogHeader_subtitle {
   margin-top: 20px;
-  font-size: 20px
+  font-size: 26px;
+
+  @include mediaQuery {
+    margin-top: 30px;
+    font-size: 32px;
+  }
 }
 
 .bl_blogHeader_categories {
   margin-top: 10px;
+
+  @include mediaQuery {
+    margin-top: 20px;
+  }
 }
 
 .bl_blogHeader_imgWrap {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 100%;
+
+  @include mediaQuery {
+    margin-top: 30px;
+  }
 
   >img {
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
+
+    @include mediaQuery {
+      width: 80%;
+    }
   }
 }
 
@@ -412,20 +462,36 @@ body {
 .bl_blogBody {
   img {
     margin: 20px auto 0;
-    width: 70%;
+    width: 80%;
     max-width: 500px;
+
+    @include mediaQuery {
+      width: 70%;
+    }
   }
 
   pre {
-    margin: 20px 20px 0;
+    margin: 0;
+
+    @include mediaQuery {
+      margin: 20px 20px 0;
+    }
   }
 
   code {
-    padding: 20px;
+    padding: 10px;
+
+    @include mediaQuery {
+      padding: 20px;
+    }
   }
 
   p {
-    margin-top: 15px;
+    margin-top: 20px;
+
+    @include mediaQuery {
+      margin-top: 15px;
+    }
   }
 
   h1,
@@ -434,7 +500,11 @@ body {
   h4,
   h5,
   h6 {
-    margin-top: 30px;
+    margin-top: 25px;
+
+    @include mediaQuery {
+      margin-top: 30px;
+    }
   }
 }
 
@@ -451,13 +521,21 @@ body {
 }
 
 .bl_searchBox_header {
-  margin-top: 10px;
+  font-size: 20px;
+
+  @include mediaQuery {
+    font-size: 22px;
+  }
 }
 
-.bl_searchBox_textArea {
+.bl_searchBox_input {
+  display: block;
   margin-top: 10px;
-  position: relative;
-
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 16px;
 }
 
 .bl_searchBox_icon {
@@ -467,14 +545,6 @@ body {
   transform: translateY(50%);
 }
 
-.bl_searchBox_input {
-  border-radius: 5px;
-  border: 1px solid #999;
-  background-color: #fff;
-  padding: 5px;
-  width: 130px;
-}
-
 .bl_button2 {
   margin-top: 5px;
   position: relative;
@@ -482,13 +552,20 @@ body {
 }
 
 .bl_button2_inner {
-  padding: 5px 25px 5px 10px;
+  -webkit-appearance: none;
+  padding: 5px 30px 5px 15px;
   border: 1px solid currentColor;
   color: $black;
   text-decoration: none;
   border-radius: 5px;
   transition: .5s;
   text-align: center;
+  background-color: #6d6d74;
+  font-size: 16px;
+}
+
+.bl_button2_inner:not(:disabled) {
+  background-color: #efefef;
 }
 
 .bl_button2_icon {
@@ -503,15 +580,12 @@ body {
 
 .bl_button2:focus,
 .bl_button2:hover {
-
-  .bl_button2_inner:not(:disabled),
   .bl_button2_inner:not(:disabled) {
     background-color: $black;
     color: $white;
     cursor: pointer;
   }
 
-  .bl_button2_inner:not(:disabled)~.bl_button2_icon,
   .bl_button2_inner:not(:disabled)~.bl_button2_icon {
     color: $white;
   }

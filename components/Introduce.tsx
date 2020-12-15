@@ -7,6 +7,14 @@ const Introduce = () => {
       text text text text text text text text text text text text text text text text text text
       text text text text text text text text text text text text text text text text text text
       text text text text text text text text text text text text text text text text text text
+            text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
+            text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text text text text
     </p>
   );
 };

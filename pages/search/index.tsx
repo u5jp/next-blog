@@ -25,12 +25,12 @@ export default function Home({ query, preview }) {
   return (
     <PageLayout>
       {preview && <PreviewAlert />}
-      <div className="ly_pageHeader_wrapper">
-        <div className="ly_pageHeader">
-          <h1>
+      <div className="bl_pageHeader">
+        <div className="bl_pageHeader_inner">
+          <h1 className="bl_pageHeader_title">
               Search Page<br />
           </h1>
-          <h2>
+          <h2 className="bl_pageHeader_subtitle">
               Target : {search}
           </h2>
         </div>

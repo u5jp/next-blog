@@ -30,11 +30,11 @@ const Category = ({ cate, blogs: initialData,preview }) => {
   return (
     <PageLayout>
       {preview && <PreviewAlert/>}
-      <div className="ly_pageHeader">
-        <h1>
+      <div className="bl_pageHeader">
+        <h1 className="bl_pageHeader_title">
           Category Page
         </h1>
-        <h2>
+        <h2 className="bl_pageHeader_subtitle">
           Tag : {cate?.fields.category}
         </h2>
       </div>

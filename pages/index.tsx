@@ -33,7 +33,7 @@ export default function Home({ blogs: initialData, categories,preview }) {
     </Head>
     <PageLayout>
       {preview && <PreviewAlert />}
-      <div className="ly_pageHeader_wrapper">
+      <div className="bl_pageHeader">
         <Introduce />
         <SearchBox
           handleSubmit={handleSubmit}

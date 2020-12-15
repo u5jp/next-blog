@@ -15,7 +15,6 @@ function SearchBox({
     <div className="bl_searchBox">
       <form onSubmit={handleSubmit}>
         <p className="bl_searchBox_header">Search Box</p>
-        <div className="bl_searchBox_textArea">
           <input
             className="bl_searchBox_input"
             type="search"
@@ -23,7 +22,6 @@ function SearchBox({
             value={text}
             onChange={e => setText(e.target.value)}
           />
-        </div>
         <div className="bl_button2">
           <input
             className="bl_button2_inner"
