@@ -5,6 +5,7 @@ import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import SearchBox from 'components/SearchBox';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import { FC, useState } from 'react';
 
 type Props = {
@@ -28,39 +29,44 @@ const Search:FC<Props> = ({ query, preview }) => {
   };
 
   return (
-    <PageLayout>
-      {preview && <PreviewAlert />}
-      <div className="bl_pageHeader">
-        <div className="bl_pageHeader_inner">
-          <h1 className="bl_pageHeader_title">
-              Search Page<br />
-          </h1>
-          <h2 className="bl_pageHeader_subtitle">
-              Target : {search}
-          </h2>
-        </div>
-
-        <SearchBox
-          handleSubmit={handleSubmit}
-          text={text}
-          setText={setText}
-        />
-      </div>
-      <div className="ly_container">
-        {blogs.map((blog,index) => (<CardItem
-            className="ly_container_item"
-            key={index}
-            {...blog.fields}
+    <>
+      <Head>
+        <title>u5jp blog | search result : {search}</title>
+      </Head>
+      <PageLayout>
+        {preview && <PreviewAlert />}
+        <div className="bl_pageHeader">
+          <div className="bl_pageHeader_inner">
+            <h1 className="bl_pageHeader_title">
+                Search Page<br />
+            </h1>
+            <h2 className="bl_pageHeader_subtitle">
+                Target : {search}
+            </h2>
+            {blogs.length ? "" :<p className="bl_pageHeader_text">No search hits</p>}
+          </div>
+          <SearchBox
+            handleSubmit={handleSubmit}
+            text={text}
+            setText={setText}
           />
-        ))}
-      </div>
-      <Button
-        className="hp-mt20"
-        hitEnd={hitEnd}
-        setSize={setSize}
-        size={size}
-      />
-    </PageLayout>
+        </div>
+        <div className="ly_container">
+          {blogs.map((blog,index) => (<CardItem
+              className="ly_container_item"
+              key={index}
+              {...blog.fields}
+            />
+          ))}
+        </div>
+        <Button
+          className="hp-mt20"
+          hitEnd={hitEnd}
+          setSize={setSize}
+          size={size}
+        />
+      </PageLayout>
+    </>
   );
 }
 

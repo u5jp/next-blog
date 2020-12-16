@@ -57,6 +57,16 @@
   }
 }
 
+.bl_pageHeader_text {
+  margin-top: 4px;
+  font-size: 18px;
+
+  @include mediaQuery {
+    margin-top: 8px;
+    font-size: 20px;
+  }
+}
+
 /*====================================
 
 	card(トップページのリストカード単体)

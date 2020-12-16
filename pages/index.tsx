@@ -37,7 +37,7 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
   return (
     <>
       <Head>
-        <title>u5jpブログ|トップページ</title>
+        <title>u5jp blog | Top page</title>
       </Head>
       <PageLayout>
         {preview && <PreviewAlert />}

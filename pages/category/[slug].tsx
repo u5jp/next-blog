@@ -6,6 +6,7 @@ import PreviewAlert from 'components/PreviewAlert';
 import { getAllCate, getBlogsContainCate, getCate } from 'lib/api';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import ErrorPage from 'next/error';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
@@ -36,6 +37,10 @@ const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
   const blogs = data ? [].concat(...data) : initialData;
 
   return (
+    <>
+    <Head>
+        <title>u5jp blog | category : {cate?.fields.category}</title>
+    </Head>
     <PageLayout>
       {preview && <PreviewAlert/>}
       <div className="bl_pageHeader">
@@ -63,7 +68,8 @@ const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
         setSize={setSize}
         size={size}
       />
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 };
 

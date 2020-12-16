@@ -4,6 +4,7 @@ import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import { getAllBlogs, getBlogBySlug } from 'lib/api';
 import ErrorPage from 'next/error';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
@@ -29,6 +30,10 @@ const BlogDetail: FC<Props> = ({ blog, preview }) => {
   }
 
   return (
+    <>
+    <Head>
+        <title>u5jp blog | title : {blog.fields.title}</title>
+    </Head>
     <PageLayout>
       {preview && <PreviewAlert/>}
       <div className="ly_blogDetail">
@@ -40,7 +45,8 @@ const BlogDetail: FC<Props> = ({ blog, preview }) => {
         <BlogContent className="ly_blogDetail" body={blog.fields.body} />
         <hr/><hr />
       </div>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 };
 
