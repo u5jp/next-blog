@@ -2,7 +2,7 @@ import CategoryTag from 'components/CategoryTag';
 import Link from 'next/link';
 import { FC } from 'react';
 
-type Props = blogField & className
+type Props = IBlogsFields & CLASS_NAME
 
 const CardItem:FC<Props> = ({
     className,

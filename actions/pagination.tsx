@@ -4,7 +4,7 @@ import { SWRInfiniteResponseInterface, useSWRInfinite } from 'swr';
 
 export const useGetBlogsPages =
   ({ id = "", search = "" } = { id: "", search: "" }) => {
-  const result: SWRInfiniteResponseInterface<blogField[],any> =
+  const result: SWRInfiniteResponseInterface<IBlogs[],any> =
   useSWRInfinite((index, previousPageData) => {
     if (previousPageData && !previousPageData.length) return null;
     if (id) return `/api/category?id=${id}&offset=${index * limit}`;

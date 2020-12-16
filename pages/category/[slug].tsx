@@ -11,13 +11,9 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 type Props = {
-  cate: category
-  blogs: blog[]
+  cate: ICategories
+  blogs: IBlogs[]
   preview: boolean
-}
-
-type vtest = {
-  sys:sys
 }
 
 const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
@@ -78,8 +74,8 @@ const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
 };
 
 export const getStaticProps:GetStaticProps = async({ params,preview=false }) => {
-  const cate = await getCate(params.slug);
-  const blogs = await getBlogsContainCate(cate.sys.id);
+  const cate:ICategories = await getCate(params.slug);
+  const blogs:IBlogs[] = await getBlogsContainCate(cate.sys.id);
 
   return {
     props: {
@@ -91,7 +87,7 @@ export const getStaticProps:GetStaticProps = async({ params,preview=false }) => 
 }
 
 export const getStaticPaths:GetStaticPaths = async() => {
-  const cates:category[] = await getAllCate();
+  const cates:ICategories[] = await getAllCate();
   return {
     paths: cates?.map((b) => ({ params: { slug: b.fields.slug } })),
     fallback: true,

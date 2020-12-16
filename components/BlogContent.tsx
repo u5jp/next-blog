@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { MARKS } from '@contentful/rich-text-types';
 
-type Props = className & any
+type Props = CLASS_NAME & BODY
 
 const options = {
   renderNode: {
@@ -19,7 +19,9 @@ const options = {
   },
 };
 
-const BlogContent:FC<Props> = ({ className,body }) => {
+const BlogContent
+  : FC<Props>
+  = ({ className, body }) => {
   return (
     <div className={`${className}_body bl_blogBody`}>
       {documentToReactComponents(body, options)}

@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-type Props = categoryField & className & index
+type Props = ICategoriesFields & CLASS_NAME & INDEX
 
 const CategoryTags:FC<Props> = (
   {
@@ -22,7 +22,7 @@ const CategoryTags:FC<Props> = (
             icon="tags"
           />
         </div>:""}
-        <div className={`${className} hp-clickable hp-hoverable`}>
+        <object className={`${className} hp-clickable hp-hoverable`}>
           {Link && (
             <Link
               href="/category/[slug]"
@@ -31,7 +31,7 @@ const CategoryTags:FC<Props> = (
                 <p>{category}</p>
             </a></Link>
           )}
-        </div>
+        </object>
     </>
   );
 };

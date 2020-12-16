@@ -5,9 +5,10 @@
 ====================================*/
 
 import { getBlogBySlug } from 'lib/api';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function enablePreview(req, res) {
-  const blog = await getBlogBySlug(req.query.slug,true)
+export default async function enablePreview(req: NextApiRequest, res: NextApiResponse) {
+  const blog:IBlogs = await getBlogBySlug(req.query.slug,true)
   if (!blog) {
     return res.status(401).json({message:"Invalid Slug"})
   }

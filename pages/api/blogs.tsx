@@ -5,8 +5,9 @@
 ====================================*/
 
 import { getAllBlogs } from 'lib/api';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function getBlogs(req, res) {
+export default async function getBlogs(req: NextApiRequest, res: NextApiResponse) {
   const data = await getAllBlogs();
   res.status(200).json(data);
 }

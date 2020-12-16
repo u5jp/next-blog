@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import Navbar from './Navbar';
 
-const PageLayout:FC<className> = ({ children, className }) => {
+const PageLayout:FC<CLASS_NAME> = ({ children, className }) => {
   return (
     <>
       <Head>

@@ -13,8 +13,8 @@ import Router from 'next/router';
 import React, { FC, useState } from 'react';
 
 type Props = {
-  blogs:blog[]
-  categories:category[]
+  blogs:IBlogs[]
+  categories:ICategories[]
   preview:boolean
 }
 
@@ -23,7 +23,7 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
   const [text, setText] = useState("")
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages();
-  const blogs:blog[] = data ? [].concat(...data) : initialData;
+  const blogs:IBlogs[] = data ? [].concat(...data) : initialData;
 
   const handleSubmit =
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -81,8 +81,8 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
 }
 
 export const getStaticProps:GetStaticProps = async ({preview=false}) => {
-  const blogs:blog = await getPaginatedBlogs();
-  const categories:category = await getAllCate();
+  const blogs:IBlogs[] = await getPaginatedBlogs();
+  const categories:ICategories[] = await getAllCate();
   return {
     props: {
       blogs,

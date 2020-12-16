@@ -1,7 +1,7 @@
 import CategoryTag from 'components/CategoryTag';
 import { FC } from 'react';
 
-type Props = blogField & className
+type Props = IBlogsFields & CLASS_NAME
 
 const BlogHeader:FC<Props> = ({
   className,

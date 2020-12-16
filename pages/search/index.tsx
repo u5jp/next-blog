@@ -20,7 +20,7 @@ const Search:FC<Props> = ({ query, preview }) => {
   const { data, size, setSize, hitEnd } = useGetBlogsPages({
     search,
   });
-  const blogs:blog[] = data ? [].concat(...data) : [];
+  const blogs = data ? [].concat(...data) : [];
 
   const handleSubmit =
     (e: React.FormEvent<HTMLFormElement>) => {

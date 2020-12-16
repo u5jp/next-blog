@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 type Props = {
-  blog:blog
+  blog:IBlogs
   preview:boolean
 }
 
@@ -42,7 +42,10 @@ const BlogDetail: FC<Props> = ({ blog, preview }) => {
           {...blog.fields}
         />
         <hr/><hr />
-        <BlogContent className="ly_blogDetail" body={blog.fields.body} />
+          <BlogContent
+            className="ly_blogDetail"
+            body={blog.fields.body}
+          />
         <hr/><hr />
       </div>
       </PageLayout>
@@ -51,14 +54,14 @@ const BlogDetail: FC<Props> = ({ blog, preview }) => {
 };
 
 export async function getStaticProps({ params, preview = false}) {
-  const blog:blog = await getBlogBySlug(params.slug ,preview);
+  const blog:IBlogs = await getBlogBySlug(params.slug ,preview);
   return {
     props: { blog,preview },
   };
 }
 
 export async function getStaticPaths() {
-  const blogs:blog[] = await getAllBlogs();
+  const blogs:IBlogs[] = await getAllBlogs();
   return {
     paths: blogs?.map((b) => ({ params: { slug: b.fields.slug } })),
     fallback: true,
