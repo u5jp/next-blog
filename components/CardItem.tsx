@@ -23,7 +23,7 @@ const CardItem:FC<Props> = ({
             <div className="bl_card">
               <p>{date}</p>
               <div className="bl_card_imgWrap">
-                <img src={thumbnail.fields.file.url} />
+                <img src={`${thumbnail.fields.file.url}?fm=webp&h=150`} alt={thumbnail.fields.title}/>
               </div>
               <div className="bl_card_textWrap">
                 <p className="bl_card_title">{title}</p>

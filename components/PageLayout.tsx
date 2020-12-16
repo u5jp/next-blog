@@ -11,7 +11,9 @@ const PageLayout:FC<CLASS_NAME> = ({ children, className }) => {
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;900&display=swap" rel="stylesheet" />
       </Head>
       <div className="ly_pageWrapper">
-        <Navbar/>
+        <header>
+          <Navbar/>
+        </header>
         <div className={`ly_page ${className}`}>{children}</div>
         <footer className="ly_footer">
           <div>
