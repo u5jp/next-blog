@@ -16,6 +16,10 @@ type Props = {
   preview: boolean
 }
 
+type vtest = {
+  sys:sys
+}
+
 const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
   const router = useRouter();
 

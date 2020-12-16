@@ -1,16 +1,22 @@
-type sys = {
-  sys:{}
+type blog ={
+    fields: blogField,
+    sys: sys
 }
 
-type blog =
-  {
-    fields: fields,
-    sys: sys
-  }
+type category = {
+    fields:categoryField,
+    sys:sys
+}
 
-//カテゴリー抜きの定義
-type fieldsWithoutCategories= {
-    body:{}
+type sys = {
+  id: string;
+}
+
+type blogField = blogFieldWithoutCategories & categories
+
+
+type blogFieldWithoutCategories= {
+    body:object
     title: string;
     subtitle: string;
     date: string;
@@ -25,23 +31,13 @@ type fieldsWithoutCategories= {
     };
 }
 
-type fields = fieldsWithoutCategories & categories
-
-type category = {
-    fields:categoryField,
-    sys: {
-      id: string;
-    }
+type categories = {
+  categories:category[]
 }
 
 type categoryField = {
     category: string;
     slug: string;
-}
-
-
-type categories = {
-  categories:category[]
 }
 
 type className = {
