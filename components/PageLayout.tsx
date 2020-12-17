@@ -33,7 +33,14 @@ const PageLayout:FC<CLASS_NAME> = ({ children, className }) => {
             </a>
             {" | "}
             <a
-              href="https://www.wantedly.com/id/yuu_ichihashi_d"
+              href="https://u5jp.github.io/pf-react-ts-hooks-redux/#/"
+              className="hp-clickable hp-hoverable"
+            >
+              SelfIntroduction
+            </a>
+            {" | "}
+            <a
+              href="https://www.wantedly.com/users/140375355"
               className="hp-clickable hp-hoverable"
             >
               Wantedly

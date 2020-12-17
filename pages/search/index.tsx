@@ -49,6 +49,7 @@ const Search:FC<Props> = ({ query, preview }) => {
             handleSubmit={handleSubmit}
             text={text}
             setText={setText}
+            search={search}
           />
         </div>
         <div className="ly_container">

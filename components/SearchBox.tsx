@@ -5,11 +5,12 @@ import SearchButton from './SearchButton';
 type PropsOptional<T> = {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   setText: (param:T)=>void;
-  text?: T;
+  text: T;
+  search?: T;
 };
 
 const SearchBox: FC<PropsOptional<string>> =
-  ({handleSubmit,setText,text}) => {
+  ({ handleSubmit, setText, text, search }) => {
 
   return (
     <div className="bl_searchBox">
@@ -25,7 +26,10 @@ const SearchBox: FC<PropsOptional<string>> =
               onChange={e => setText(e.target.value)}
             />
           </label>
-        <SearchButton disabled={text ? false : true}/>
+          <SearchButton disabled={
+            text && text !==search?false:true
+            }
+          />
       </form>
     </div>
   )
