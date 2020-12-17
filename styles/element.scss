@@ -12,24 +12,34 @@
   cursor: pointer;
   display: inline-block;
   max-width: 100%;
-  background: #6A5E76;
+  background: $purple;
   padding: 10px 30px;
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
   width: 150px;
   border: none;
-  color: $white;
+  color: $lightBackground;
   border-radius: 8px;
   border: 2px solid transparent;
   text-shadow: none;
   transition: 0.2s;
+
+  @include mediaQuery(dark) {
+    background: $orange;
+    color: $darkBackground;
+  }
 }
 
 .el_button_inner:hover:not(:disabled) {
-  background: $white;
+  background: $lightBackground;
   border-color: currentColor;
   color: $purple;
+
+  @include mediaQuery(dark) {
+    color: $orange;
+    background: $darkBackground;
+  }
 }
 
 .el_button_inner:disabled {

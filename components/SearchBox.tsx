@@ -16,7 +16,8 @@ const SearchBox: FC<PropsOptional<string>> =
       <form onSubmit={handleSubmit}>
         <p className="bl_searchBox_header">Search Box</p>
           <label>
-            <input
+          <input
+              aria-label="search box"
               className="bl_searchBox_input"
               type="search"
               placeholder="Enter a keyword"

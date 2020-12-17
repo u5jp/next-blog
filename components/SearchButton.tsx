@@ -11,6 +11,7 @@ const SearchButton:FC<Props> = ({disabled}) => {
     <div className="el_inputButton">
       <label>
         <input
+          aria-label="search submit button"
           className="el_inputButton_inner"
           type="submit"
           value="search"

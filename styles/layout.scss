@@ -40,6 +40,9 @@
 
   a {
     color: $purple;
+    @include mediaQuery(dark) {
+      color: $orange;
+    }
   }
 
   @include mediaQuery {
