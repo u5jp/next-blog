@@ -10,7 +10,7 @@ const options = {
   renderNode: {
     "embedded-asset-block": ({ data }) =>
       <img className="blogDetailPage_img"
-        src={data.target.fields.file.url}
+        src={`${data.target.fields.file.url}?fm=webp&w=500`}
         alt={data.target.fields.title}
       />
   },
