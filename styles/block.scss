@@ -122,7 +122,7 @@
 .bl_card_text {
   margin-top: 10px;
   font-size: 14px;
-  // color: $middle;
+  height: 20px;
 }
 
 .bl_card_categories {
@@ -257,10 +257,21 @@
 
   p {
     margin-top: 20px;
+    font-size: 15px;
 
     @include mediaQuery {
       margin-top: 15px;
+      font-size: 16px;
     }
+  }
+
+  blockquote {
+    color: #999;
+    font-size: 1.25em;
+    font-family: serif;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 20px;
   }
 
   h1,
@@ -270,9 +281,11 @@
   h5,
   h6 {
     margin-top: 25px;
+    font-size: 20px;
 
     @include mediaQuery {
       margin-top: 30px;
+      font-size: 22px;
     }
   }
 }

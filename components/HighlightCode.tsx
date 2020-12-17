@@ -3,7 +3,7 @@ import { createRef, FC, useEffect } from 'react';
 import { findDOMNode } from 'react-dom';
 
 const HighlightCode:FC = ({ children }) => {
-  const code = createRef<HTMLDivElement>();
+  const code = createRef<HTMLElement>();
 
   useEffect(() => {
     highlight.highlightBlock(findDOMNode(code.current));

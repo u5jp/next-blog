@@ -45,7 +45,7 @@
 
 $darkBackground:#2b2c38;
 $lightBackground:#f4f7f9;
-$disabled:#ccc;
+$disabled:#6d6d74;
 $black:#2b2c38;
 $middle:#888;
 $white:#dcdcdc;
@@ -62,8 +62,8 @@ $purple:#6A5E76;
 
 ====================================*/
 
-$queries: ('smallMobile':'screen and (max-width: 375px)',
-  'mobile': 'screen and (max-width: 600px)',
+$queries: ('smallMobile':'screen and (max-width: 450px)',
+  'mobile': 'screen and (max-width: 700px)',
   'tablet': 'screen and (max-width: 959px)',
   'desktop': 'screen and (min-width: 960px)',
   'dark':'(prefers-color-scheme: dark) ',

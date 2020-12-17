@@ -89,6 +89,7 @@ export const getStaticProps:GetStaticProps = async ({preview=false}) => {
       categories,
       preview
     },
+    revalidate: 1
   };
 }
 

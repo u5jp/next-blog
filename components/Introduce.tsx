@@ -9,14 +9,6 @@ const Introduce:FC = () => {
       text text text text text text text text text text text text text text text text text text
       text text text text text text text text text text text text text text text text text text
       text text text text text text text text text text text text text text text text text text
-            text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
-            text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
-      text text text text text text text text text text text text text text text text text text
     </p>
   );
 };

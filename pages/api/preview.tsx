@@ -8,7 +8,13 @@ import { getBlogBySlug } from 'lib/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function enablePreview(req: NextApiRequest, res: NextApiResponse) {
+
+  if (req.query.secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !req.query.slug) {
+    return res.status(401).json({message:"Invalid Slug"})
+  }
+
   const blog:IBlogs = await getBlogBySlug(req.query.slug,true)
+
   if (!blog) {
     return res.status(401).json({message:"Invalid Slug"})
   }

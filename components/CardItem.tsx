@@ -26,8 +26,8 @@ const CardItem:FC<Props> = ({
                 <img src={`${thumbnail.fields.file.url}?fm=webp&h=150`} alt={thumbnail.fields.title}/>
               </div>
               <div className="bl_card_textWrap">
-                <p className="bl_card_title">{title}</p>
-                <p className="bl_card_text">{subtitle}</p>
+                <p className="bl_card_title">{title.length > 20 ? title.substr(0,20) + "..." : title}</p>
+                <p className="bl_card_text">{subtitle.length > 30 ? subtitle.substr(0,30) + "..." : subtitle}</p>
               </div>
               <div className="bl_card_categories bl_category_wrapper">
                 {categories.map((category, index) => (

@@ -83,6 +83,7 @@ export const getStaticProps:GetStaticProps = async({ params,preview=false }) => 
       blogs,
       preview
     },
+    revalidate: 1
   };
 }
 
