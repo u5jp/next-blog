@@ -62,7 +62,6 @@
   margin: 20px 5px 0;
   min-width: 160px;
   min-height: 280px;
-  transition: .5s;
 
   @include mediaQuery {
     width: calc(100% / 3 - 20px);
