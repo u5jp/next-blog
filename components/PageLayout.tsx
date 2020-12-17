@@ -8,13 +8,15 @@ const PageLayout:FC<CLASS_NAME> = ({ children, className }) => {
   return (
     <>
       <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700;900&display=swap" rel="stylesheet" />
+        <meta name="description" content="u5jpのブログです。プログラミングや日常の出来事について記録されています。このブログはNext.js、TypeScriptで実装されています。コンテンツはヘッドレスCMSのContentfulで管理しています。このページはVercelでホスティングされています。" />
       </Head>
       <div className="ly_pageWrapper">
         <header>
           <Navbar/>
         </header>
-        <div className={`ly_page ${className}`}>{children}</div>
+        <main>
+          <div className={`ly_page ${className}`}>{children}</div>
+        </main>
         <footer className="ly_footer">
           <div>
             <Link href="/"><a

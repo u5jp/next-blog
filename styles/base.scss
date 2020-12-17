@@ -6,6 +6,34 @@
 
 /*====================================
 
+  フォント定義
+
+====================================*/
+
+
+@font-face {
+  font-family: Alegreya;
+  src: url('fonts/Alegreya/Alegreya-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Alegreya;
+  src: url('fonts/Alegreya/Alegreya-Bold.ttf') format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Alegreya;
+  src: url('fonts/Alegreya/Alegreya-Black.ttf') format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/*====================================
+
   配色テーマカラー
   基本的にこの中の色を使う
   #fffと#000は例外的に使用可能
@@ -50,6 +78,7 @@ $queries: ('smallMobile':'screen and (max-width: 375px)',
 
 ====================================*/
 
+
 html,
 body {
   height: 100%;
@@ -59,11 +88,13 @@ body {
 }
 
 @include mediaQuery(dark) {
+
   html,
   body {
     background: $darkBackground;
     color: $white
   }
+
   a {
     color: $white
   }

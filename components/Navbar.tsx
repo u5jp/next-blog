@@ -5,7 +5,7 @@ const Navbar:FC = () => {
   return (
     <nav className="ly_nav">
       <Link href="/">
-        <a className="bl_navTitle hp-clickable hp-hoverable">u5jp</a>
+        <a className="skip-link bl_navTitle hp-clickable hp-hoverable">u5jp</a>
       </Link>
     </nav>
   );

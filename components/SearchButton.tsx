@@ -9,12 +9,14 @@ type Props = {
 const SearchButton:FC<Props> = ({disabled}) => {
   return (
     <div className="el_inputButton">
-      <input
-        className="el_inputButton_inner"
-        type="submit"
-        value="search"
-        disabled={disabled}
-      />
+      <label>
+        <input
+          className="el_inputButton_inner"
+          type="submit"
+          value="search"
+          disabled={disabled}
+        />
+      </label>
       <FontAwesomeIcon
         className="el_inputButton_icon"
         size="1x"

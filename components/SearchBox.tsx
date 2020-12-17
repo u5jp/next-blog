@@ -15,13 +15,15 @@ const SearchBox: FC<PropsOptional<string>> =
     <div className="bl_searchBox">
       <form onSubmit={handleSubmit}>
         <p className="bl_searchBox_header">Search Box</p>
-          <input
-            className="bl_searchBox_input"
-            type="search"
-            placeholder="Enter a keyword"
-            value={text}
-            onChange={e => setText(e.target.value)}
-          />
+          <label>
+            <input
+              className="bl_searchBox_input"
+              type="search"
+              placeholder="Enter a keyword"
+              value={text}
+              onChange={e => setText(e.target.value)}
+            />
+          </label>
         <SearchButton disabled={text ? false : true}/>
       </form>
     </div>
