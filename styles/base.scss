@@ -46,15 +46,12 @@
 $darkBackground:#2b2c38;
 $lightBackground:#f4f7f9;
 $disabled:#6d6d74;
+$input:#efefef;
 $black:#2b2c38;
 $middle:#888;
-$white:#dcdcdc;
-$blue:#739AB1;
-$gray:#CECABF;
-$orange:#DEA785;
-$deepOrange:#9D6B7D;
-$red:#9D6B7D;
-$purple:#6A5E76;
+$white:#f4f7f9;
+$blue:#346791;
+$red:#8E3733;
 
 /*====================================
 
@@ -86,7 +83,7 @@ html,
 body {
   height: 100%;
   font-family: Alegreya, sans-serif;
-  background-color: $lightBackground;
+  background-color: $white;
   color: $black;
 }
 
@@ -94,7 +91,7 @@ body {
 
   html,
   body {
-    background: $darkBackground;
+    background: $black;
     color: $white
   }
 

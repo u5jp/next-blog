@@ -70,7 +70,7 @@
 .bl_card {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 25px;
-  padding: 10px 15px 5px;
+  padding: 10px 15px;
   background: $black;
   color: $white;
 
@@ -80,7 +80,7 @@
   }
 
   @include mediaQuery {
-    padding: 15px 20px 5px;
+    padding: 15px 20px;
   }
 }
 
@@ -138,7 +138,7 @@
   font-size: 13px;
   padding: 5px;
   border-radius: 10px;
-  background-color: $blue;
+  background: $blue;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
 
   p {
