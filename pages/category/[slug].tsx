@@ -1,5 +1,5 @@
 import { useGetBlogsPages } from 'actions/pagination';
-import Button from 'components/Button';
+import ButtonReadMore from 'components/ButtonReadMore';
 import CardItem from 'components/CardItem';
 import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
@@ -62,7 +62,7 @@ const Category:FC<Props> = ({ cate, blogs: initialData,preview }) => {
           />
         })}
       </div>
-      <Button
+      <ButtonReadMore
         className={"hp-mt20"}
         hitEnd={hitEnd}
         setSize={setSize}

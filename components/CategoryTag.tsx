@@ -1,18 +1,16 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type Props = ICategoriesFields & CLASS_NAME & INDEX
 
-const CategoryTags:FC<Props> = (
-  {
+const CategoryTags: FC<Props> = ({
     index,
     className,
     slug,
     category,
-  }
-) => {
+  }) => {
   return (
     <>
       {index === 0 ?
@@ -22,7 +20,7 @@ const CategoryTags:FC<Props> = (
             icon="tags"
           />
         </div>:""}
-        <object className={`${className} hp-clickable hp-hoverable`}>
+        <div className={`${className} hp-clickable hp-hoverable`}>
           {Link && (
             <Link
               href="/category/[slug]"
@@ -31,9 +29,9 @@ const CategoryTags:FC<Props> = (
                 <p>{category}</p>
             </a></Link>
           )}
-        </object>
+        </div>
     </>
   );
 };
 
-export default CategoryTags;
+export default React.memo(CategoryTags);

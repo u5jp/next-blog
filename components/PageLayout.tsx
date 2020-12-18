@@ -1,21 +1,26 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import Navbar from './Navbar';
 
-const PageLayout:FC<CLASS_NAME> = ({ children, className }) => {
+type Props = {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+const PageLayout: FC<Props> = ({ children, className }) => {
   return (
     <>
       <Head>
         <meta name="description" content="u5jpのブログです。プログラミングや日常の出来事について記録されています。このブログはNext.js、TypeScriptで実装されています。コンテンツはヘッドレスCMSのContentfulで管理しています。このページはVercelでホスティングされています。" />
       </Head>
       <div className="ly_pageWrapper">
-        <header>
+        <header className="ly_header">
           <Navbar/>
         </header>
-        <main>
-          <div className={`ly_page ${className}`}>{children}</div>
+        <main className={`ly_main ${className}`}>
+          {children}
         </main>
         <footer className="ly_footer">
           <div>

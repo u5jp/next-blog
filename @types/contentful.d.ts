@@ -77,3 +77,5 @@ type LOCALE_CODE = "en-US";
 type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";
 
 type BODY = Pick<IBlogsFields, 'body'>
+
+type SLUG = Pick<IBlogsFields, 'slug'>

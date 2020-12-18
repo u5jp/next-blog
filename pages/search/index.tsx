@@ -1,12 +1,12 @@
 import { useGetBlogsPages } from 'actions/pagination';
-import Button from 'components/Button';
+import ButtonReadMore from 'components/ButtonReadMore';
 import CardItem from 'components/CardItem';
 import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
 import SearchBox from 'components/SearchBox';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
 type Props = {
   query:{search:string},
@@ -22,11 +22,11 @@ const Search:FC<Props> = ({ query, preview }) => {
   });
   const blogs = data ? [].concat(...data) : [];
 
-  const handleSubmit =
+  const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch(text);
-  };
+  },[text])
 
   return (
     <>
@@ -60,7 +60,7 @@ const Search:FC<Props> = ({ query, preview }) => {
             />
           ))}
         </div>
-        <Button
+        <ButtonReadMore
           className="hp-mt20"
           hitEnd={hitEnd}
           setSize={setSize}

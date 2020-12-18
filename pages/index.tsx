@@ -1,5 +1,5 @@
 import { useGetBlogsPages } from 'actions/pagination';
-import Button from 'components/Button';
+import ButtonReadMore from 'components/ButtonReadMore';
 import CardItem from 'components/CardItem';
 import CategoryTag from 'components/CategoryTag';
 import Introduce from 'components/Introduce';
@@ -10,7 +10,7 @@ import { getAllCate, getPaginatedBlogs } from 'lib/api';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Router from 'next/router';
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 type Props = {
   blogs:IBlogs[]
@@ -25,14 +25,14 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
   const { data, size, setSize, hitEnd } = useGetBlogsPages();
   const blogs:IBlogs[] = data ? [].concat(...data) : initialData;
 
-  const handleSubmit =
-    (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    Router.push({
-      pathname: '/search',
-      query: { search:`${text}` }
-    })
-  }
+  const handleSubmit = useCallback(
+      (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        Router.push({
+          pathname: '/search',
+          query: { search:`${text}` }
+        })
+      }, [text])
 
   return (
     <>
@@ -49,7 +49,6 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
             setText={setText}
           />
         </div>
-
         <div className="bl_category_wrapper bl_category_wrapper__right">
           {categories.map((category, index) => (
             <CategoryTag
@@ -62,21 +61,22 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
         </div>
         <hr />
         <div className="ly_container">
-          {blogs.map((blog,index) => (<CardItem
+          {blogs.map((blog, index) => (
+            <CardItem
               className="ly_container_item"
               key={index}
               {...blog.fields}
             />
           ))}
         </div>
-        <Button
-          className="hp-mt20"
+        <ButtonReadMore
+          className="hp-mt30"
           hitEnd={hitEnd}
           setSize={setSize}
           size={size}
         />
-        </PageLayout>
-      </>
+      </PageLayout>
+    </>
   );
 }
 

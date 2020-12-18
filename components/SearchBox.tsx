@@ -11,11 +11,10 @@ type PropsOptional<T> = {
 
 const SearchBox: FC<PropsOptional<string>> =
   ({ handleSubmit, setText, text, search }) => {
-
-  return (
-    <div className="bl_searchBox">
-      <form onSubmit={handleSubmit}>
-        <p className="bl_searchBox_header">Search Box</p>
+    return (
+      <div className="bl_searchBox">
+        <form onSubmit={handleSubmit}>
+          <p className="bl_searchBox_header">Search Box</p>
           <input
             aria-label="search box"
             className="bl_searchBox_input"
@@ -25,12 +24,12 @@ const SearchBox: FC<PropsOptional<string>> =
             onChange={e => setText(e.target.value)}
           />
           <SearchButton disabled={
-            text && text !==search?false:true
-            }
+            text && text !== search ? false : true
+          }
           />
-      </form>
-    </div>
-  )
-}
+        </form>
+      </div>
+    )
+  };
 
-export default SearchBox
+export default React.memo(SearchBox)

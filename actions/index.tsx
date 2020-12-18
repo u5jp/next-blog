@@ -5,9 +5,6 @@ const fetcher = (url: string) =>
     .then((res) => res.json())
     .catch(error => error);
 
-export const useGetHello = () =>
-  useSWR("/api/hello", fetcher);
-
 export const getBlogs = (url:string) => {
   return fetcher(url);
 };

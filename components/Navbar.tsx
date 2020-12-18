@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
-const Navbar:FC = () => {
+const Navbar: FC = () => {
+  console.log("navbar描画")
   return (
     <nav className="ly_nav">
       <Link href="/">
@@ -11,4 +12,4 @@ const Navbar:FC = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

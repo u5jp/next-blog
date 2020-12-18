@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 const Introduce:FC = () => {
   return (
     <p className="bl_introduce">
-      My name is u5 and I am an experienced Web design and engineering.<br/>
+      My name is u5. I experienced Web design and engineering.<br/>
       and this is my blog page.<br/>
       text text text text text text text text text text text text text text text text text text
       text text text text text text text text text text text text text text text text text text
@@ -13,4 +13,4 @@ const Introduce:FC = () => {
   );
 };
 
-export default Introduce;
+export default React.memo(Introduce);
