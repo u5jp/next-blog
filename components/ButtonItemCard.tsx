@@ -12,7 +12,7 @@ const ButtonItemCard:FC<Props> = ({className,slug}) => {
       >
         <a>
           <div className="el_button_inner el_button_inner__colorReverse hp-w100 hp-mt10">
-            See detail
+            View the detail
           </div>
         </a>
       </Link>
