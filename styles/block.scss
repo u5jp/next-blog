@@ -87,19 +87,17 @@
 
 .bl_card_imgWrap {
   margin-top: 10px;
-  height: 150px;
   position: relative;
   overflow: hidden;
+  padding-top: 56.25%;
+}
 
-  >img {
-    position: absolute;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    right: 50%;
-    bottom: 50%;
-    transform: translate(50%, 50%);
-  }
+.bl_card_img {
+  position: absolute;
+  width: 100%;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
 }
 
 .bl_card_textWrap {
@@ -192,11 +190,11 @@
 }
 
 .bl_blogHeader_imgWrap {
-  margin: 20px auto;
+  margin: 20px auto 0;
   width: 90%;
 
   @include mediaQuery {
-    margin: 30px auto;
+    margin: 30px auto 0;
     width: 80%;
   }
 }

@@ -30,13 +30,15 @@ const CardItem: FC<Props> = ({
           )}
         </div>
         <div className="bl_card_imgWrap">
-          <Image
-            src={`https:${thumbnail.fields.file.url}?fm=webp&h=150`}
-            alt={thumbnail.fields.title}
-            loading="lazy"
-            height={thumbnail.fields.file.details.image.height}
-            width={thumbnail.fields.file.details.image.width}
-          />
+          <div className="bl_card_img">
+            <Image
+              src={`https:${thumbnail.fields.file.url}?fm=webp&h=150`}
+              alt={thumbnail.fields.title}
+              loading="lazy"
+              height={thumbnail.fields.file.details.image.height}
+              width={thumbnail.fields.file.details.image.width}
+            />
+          </div>
         </div>
         <div className="bl_card_textWrap">
           <p className="bl_card_title">{title.length > 20 ? title.substr(0,20) + "..." : title}</p>
