@@ -4,12 +4,7 @@ import React, { FC } from 'react';
 
 import Navbar from './Navbar';
 
-type Props = {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-const PageLayout: FC<Props> = ({ children, className }) => {
+const PageLayout: FC<CLASS_NAME> = ({ children, className }) => {
   return (
     <>
       <Head>
