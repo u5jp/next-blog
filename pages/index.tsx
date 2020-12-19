@@ -1,5 +1,5 @@
 import { useGetBlogsPages } from 'actions/pagination';
-import ButtonReadMore from 'components/ButtonReadMore';
+import ButtonMoreBlogs from 'components/ButtonMoreBlogs';
 import CardItem from 'components/CardItem';
 import CategoryTag from 'components/CategoryTag';
 import Introduce from 'components/Introduce';
@@ -69,7 +69,7 @@ const Home: FC<Props> = ({ blogs: initialData, categories,preview }) => {
             />
           ))}
         </div>
-        <ButtonReadMore
+        <ButtonMoreBlogs
           className="hp-mt30"
           hitEnd={hitEnd}
           setSize={setSize}

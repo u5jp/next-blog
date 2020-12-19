@@ -1,4 +1,4 @@
-import ButtonItemCard from 'components/ButtonItemCard';
+import ButtonReadMore from 'components/ButtonReadMore';
 import CategoryTag from 'components/CategoryTag';
 import Image from 'next/image';
 import React, { FC } from 'react';
@@ -44,7 +44,7 @@ const CardItem: FC<Props> = ({
           <p className="bl_card_title">{title.length > 20 ? title.substr(0,20) + "..." : title}</p>
           <p className="bl_card_text">{subtitle.length > 30 ? subtitle.substr(0,30) + "..." : subtitle}</p>
         </div>
-        <ButtonItemCard
+        <ButtonReadMore
           slug={slug}
         />
       </div>

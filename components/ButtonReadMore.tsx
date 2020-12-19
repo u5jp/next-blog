@@ -1,28 +1,22 @@
-
-
-
+import Link from 'next/link';
 import React, { FC } from 'react';
 
-type MORE_BLOG = {
-  hitEnd?: boolean;
-  setSize?: (param:number)=>void;
-  size?: number;
+type Props = CLASS_NAME & SLUG
+
+const ButtonItemCard:FC<Props> = ({className,slug}) => {
+  return (
+    <div className={`el_button ${className}`}>
+      <Link
+        href="/blogs/[slug]"
+        as={`/blogs/${slug}`}
+      >
+        <a>
+          <div className="el_button_inner el_button_inner__colorReverse hp-w100 hp-mt10">
+            Read More
+          </div>
+        </a>
+      </Link>
+    </div>
+  )
 }
-
-type Props = CLASS_NAME & MORE_BLOG
-
-const ButtonReadMore: FC<Props> =
-  ({ className, hitEnd, setSize, size }) => {
-    return (
-      <div className={`el_button ${className}`}>
-        <button
-          disabled={hitEnd}
-          onClick={() => { setSize(size + 1) }}
-          className="el_button_inner">
-          Read More
-      </button>
-      </div>
-    )
-  };
-
-export default React.memo(ButtonReadMore);
+export default ButtonItemCard;
