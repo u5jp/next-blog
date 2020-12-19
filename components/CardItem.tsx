@@ -31,7 +31,7 @@ const CardItem: FC<Props> = ({
         </div>
         <div className="bl_card_imgWrap">
           <Image
-            src={`https://${thumbnail.fields.file.url}?fm=webp&h=150`}
+            src={`https:${thumbnail.fields.file.url}?fm=webp&h=150`}
             alt={thumbnail.fields.title}
             loading="lazy"
             height={thumbnail.fields.file.details.image.height}

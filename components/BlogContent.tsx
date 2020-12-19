@@ -12,7 +12,7 @@ const options = {
     "embedded-asset-block": ({ data }) =>
       <div className="bl_blogBody_img">
         <Image
-          src={`https://${data.target.fields.file.url}?fm=webp&w=500`}
+          src={`https:${data.target.fields.file.url}?fm=webp&w=500`}
           alt={data.target.fields.title}
           loading="lazy"
           height={data.target.fields.file.details.image.height}

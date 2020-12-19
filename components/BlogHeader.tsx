@@ -29,7 +29,7 @@ const BlogHeader:FC<Props> = ({
       </div>
       <div className="bl_blogHeader_imgWrap">
         <Image
-          src={`https://${thumbnail.fields.file.url}?fm=webp&w=700`}
+          src={`https:${thumbnail.fields.file.url}?fm=webp&w=700`}
           alt={thumbnail.fields.title}
           loading="lazy"
           height={thumbnail.fields.file.details.image.height}
