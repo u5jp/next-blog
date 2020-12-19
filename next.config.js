@@ -14,4 +14,7 @@ module.exports = withBundleAnalyzer({
     CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
     CONTENTFUL_PREVIEW_SECRET: process.env.CONTENTFUL_PREVIEW_SECRET,
   },
+  images: {
+    domains: ["images.ctfassets.net"],
+  },
 });

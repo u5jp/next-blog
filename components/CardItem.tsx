@@ -1,5 +1,6 @@
 import ButtonItemCard from 'components/ButtonItemCard';
 import CategoryTag from 'components/CategoryTag';
+import Image from 'next/image';
 import React, { FC } from 'react';
 
 type Props = IBlogsFields & CLASS_NAME
@@ -12,7 +13,7 @@ const CardItem: FC<Props> = ({
     thumbnail,
     title,
     slug,
-  }) => {
+}) => {
   return (
     <div className={`${className}`}>
       <div className="bl_card">
@@ -29,7 +30,13 @@ const CardItem: FC<Props> = ({
           )}
         </div>
         <div className="bl_card_imgWrap">
-          <img src={`${thumbnail.fields.file.url}?fm=webp&h=150`} height="150" alt={thumbnail.fields.title}/>
+          <Image
+            src={`https://${thumbnail.fields.file.url}?fm=webp&h=150`}
+            alt={thumbnail.fields.title}
+            loading="lazy"
+            height={thumbnail.fields.file.details.image.height}
+            width={thumbnail.fields.file.details.image.width}
+          />
         </div>
         <div className="bl_card_textWrap">
           <p className="bl_card_title">{title.length > 20 ? title.substr(0,20) + "..." : title}</p>

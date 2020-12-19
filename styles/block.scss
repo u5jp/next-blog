@@ -8,6 +8,7 @@
   display: block;
   font-size: 40px;
   font-weight: 900;
+
   @include mediaQuery {
     font-size: 48px;
   }
@@ -191,20 +192,12 @@
 }
 
 .bl_blogHeader_imgWrap {
-  margin-top: 20px;
-  width: 100%;
+  margin: 20px auto;
+  width: 90%;
 
   @include mediaQuery {
-    margin-top: 30px;
-  }
-
-  >img {
-    margin: 0 auto;
-    width: 90%;
-
-    @include mediaQuery {
-      width: 80%;
-    }
+    margin: 30px auto;
+    width: 80%;
   }
 }
 
@@ -215,16 +208,6 @@
 ====================================*/
 
 .bl_blogBody {
-  img {
-    margin: 20px auto 0;
-    width: 80%;
-    max-width: 500px;
-
-    @include mediaQuery {
-      width: 70%;
-    }
-  }
-
   pre {
     margin: 0;
 
@@ -273,6 +256,16 @@
       margin-top: 30px;
       font-size: 22px;
     }
+  }
+}
+
+.bl_blogBody_img {
+  margin: 20px auto 0;
+  width: 80%;
+  max-width: 500px;
+
+  @include mediaQuery {
+    width: 70%;
   }
 }
 
