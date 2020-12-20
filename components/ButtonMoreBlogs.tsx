@@ -18,7 +18,7 @@ const ButtonReadMore: FC<Props> =
         <button
           disabled={hitEnd}
           onClick={() => { setSize(size + 1) }}
-          className="el_button_inner">
+          className="el_button_inner el_button_inner__sizeL">
           More Blogs
       </button>
       </div>
