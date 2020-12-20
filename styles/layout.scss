@@ -31,6 +31,7 @@
 .ly_main {
   position: relative;
   margin-top: 30px;
+
   @include mediaQuery {
     margin-top: 40px;
   }
@@ -62,25 +63,17 @@
 }
 
 .ly_container_item {
-  width: calc(100% / 3 - 10px);
-  margin: 20px 5px 0;
-  min-width: 160px;
-  min-height: 280px;
+  width: 100%;
+  margin: 20px 10px 0;
 
-  @include mediaQuery {
-    width: calc(100% / 3 - 20px);
-    margin: 30px 10px 0;
-  }
-
-  @include mediaQuery(mobile) {
+  @include mediaQuery(mobile_follow) {
     width: calc(100% / 2 - 10px);
     margin: 20px 5px 0;
-    min-width: 160px;
   }
 
-  @include mediaQuery(smallMobile) {
-    width: 100%;
-    margin: 20px 10px 0;
+  @include mediaQuery(tablet_follow) {
+    width: calc(100% / 3 - 10px);
+    margin: 20px 5px 0;
   }
 }
 
