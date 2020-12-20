@@ -29,10 +29,10 @@ $red:#8E3733;
 ====================================*/
 
 $queries: ('smallMobile':'screen and (max-width: 450px)',
-  'mobile': 'screen and (max-width: 650px)',
+  'mobile': 'screen and (max-width: 700px)',
   'mobile_follow' : 'screen and (min-width: 451px)',
-  'tablet': 'screen (min-width: 650px) and (max-width: 959px)',
-  'tablet_follow': 'screen and (min-width: 650px)',
+  'tablet': 'screen (min-width: 700px) and (max-width: 959px)',
+  'tablet_follow': 'screen and (min-width: 700px)',
   'desktop': 'screen and (min-width: 960px)',
   'dark':'(prefers-color-scheme: dark) ',
 ) !default;
