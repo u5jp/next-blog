@@ -6,37 +6,6 @@
 
 /*====================================
 
-  フォント定義
-
-====================================*/
-
-
-@font-face {
-  font-family: Alegreya;
-  src: url('fonts/Alegreya/Alegreya-Regular.ttf') format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Alegreya;
-  src: url('fonts/Alegreya/Alegreya-Bold.ttf') format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Alegreya;
-  src: url('fonts/Alegreya/Alegreya-Black.ttf') format("truetype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/*====================================
-
   配色テーマカラー
   基本的にこの中の色を使う
   #fffと#000は例外的に使用可能
@@ -84,7 +53,7 @@ $queries: ('smallMobile':'screen and (max-width: 450px)',
 html,
 body {
   height: 100%;
-  font-family: Alegreya, sans-serif;
+  font-family: 'Georgia', 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', 'sans-serif';
   background-color: $white;
   color: $black;
 }
