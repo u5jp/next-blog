@@ -192,6 +192,7 @@
 .bl_blogHeader_imgWrap {
   margin: 20px auto 0;
   width: 90%;
+  max-width:700px;
 
   @include mediaQuery {
     margin: 30px auto 0;
