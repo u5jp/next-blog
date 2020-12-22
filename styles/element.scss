@@ -45,6 +45,11 @@
     color: $black;
     background: $disabled;
     cursor: auto;
+
+    //▼▼iPhone inputTag hack
+    -webkit-text-fill-color: black;
+    opacity: 1;
+    //▲▲
   }
 }
 
@@ -90,12 +95,17 @@
   text-align: center;
   background: $input;
   font-size: 16px;
-}
 
-.el_inputButton_inner:disabled {
-  color: $black;
-  background: $disabled;
-  cursor: auto;
+  &:disabled {
+    color: $black;
+    background: $disabled;
+    cursor: auto;
+
+    //▼▼iPhone inputTag hack
+    -webkit-text-fill-color: black;
+    opacity: 1;
+    //▲▲
+  }
 }
 
 .el_inputButton_icon {
