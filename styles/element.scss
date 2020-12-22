@@ -47,7 +47,7 @@
     cursor: auto;
 
     //▼▼iPhone inputTag hack
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: $black;
     opacity: 1;
     //▲▲
   }
@@ -102,7 +102,7 @@
     cursor: auto;
 
     //▼▼iPhone inputTag hack
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: $black;
     opacity: 1;
     //▲▲
   }
