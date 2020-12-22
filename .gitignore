@@ -36,3 +36,4 @@ yarn-error.log*
 
 # 追加
 /codegen
+.node-version
