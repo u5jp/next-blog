@@ -17,10 +17,8 @@
     "@fortawesome/react-fontawesome": "^0.1.13",
     "contentful": "^8.1.1",
     "contentful-management": "^7.5.0",
-    "dotenv": "^8.2.0",
     "highlight.js": "^10.4.1",
     "next": "10.0.3",
-    "prettier": "^2.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.30.0",
@@ -32,6 +30,8 @@
     "@types/react": "^17.0.0",
     "contentful-typescript-codegen": "^3.2.1",
     "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "prettier": "^2.2.1",
     "typescript": "^4.1.2"
   }
 }
