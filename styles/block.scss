@@ -192,7 +192,7 @@
 .bl_blogHeader_imgWrap {
   margin: 20px auto 0;
   width: 90%;
-  max-width:700px;
+  max-width: 700px;
 
   @include mediaQuery {
     margin: 30px auto 0;
@@ -297,6 +297,10 @@
   background-color: #fff;
   padding: 5px;
   font-size: 16px;
+
+  //focusリング無効
+  -webkit-appearance: none;
+  outline: 0;
 }
 
 .bl_searchBox_icon {
